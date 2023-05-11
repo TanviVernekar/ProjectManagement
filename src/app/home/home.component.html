@@ -1,0 +1,73 @@
+<div class="main-container">
+<app-header></app-header>
+  <div class="inner-container">
+    <div *ngIf="loginButton === true" class="descriptionContainer">
+      <span class="short-name">RMT</span>
+      <span class="full-name"> Resource Management Tool</span>
+    </div>
+
+    <div *ngIf="loginButton === false" class="loginContainer">
+      <div class="loginMainDiv">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-div">
+          <label for="email" class="email">Email </label>
+          <input
+            id="email"
+            type="email"
+            placeholder="Enter email"
+            formControlName="email"
+            class="input"
+          />
+
+          <div
+            *ngIf="
+              !loginForm.get('email').valid && loginForm.get('email').touched
+            "
+            class="errormsg"
+          >
+            <span>Enter a valid email</span>
+            <!-- <div *ngIf="loginForm.errors.['required']">
+                    email is required.
+                  </div> -->
+          </div>
+
+          <label for="password" class="password">Password </label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter password"
+            formControlName="password"
+            class="input"
+          />
+
+          <div
+            *ngIf="
+              !loginForm.get('password').valid &&
+              loginForm.get('password').touched
+            "
+            class="errormsg"
+          >
+            <span
+              >Password should be atleast 5 characters long,one number,one
+              character, one capital letter and one small letter</span
+            >
+            <!-- <div *ngIf="password.errors.['required']">
+                    email is required.
+                  </div> -->
+          </div>
+          <div class="submit-button">
+            <button
+              class="submitBtn"
+              color="primary"
+              [disabled]="!loginForm.valid"
+              type="submit"
+            >
+              SignIn or Register
+            </button>
+          </div>
+        </form>
+    </div>
+</div>
+<!-- <router-outlet></router-outlet> -->
+</div>
+
+</div>
