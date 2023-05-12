@@ -40,6 +40,6 @@ onSubmit() {
   console.log(this.loginForm.value);
   console.log(this.loginForm.status)
   console.log("I am clicked  ")
-  this.router.navigate(['tabnavigation'])
+  this.router.navigate(['/tabnavigation'])
 }
 }

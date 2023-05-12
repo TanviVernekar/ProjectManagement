@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class EmployeeComponent {
 
+
+  data:any=['employee1','employee2','employee3','employee4','empployee5','employee6']
 }

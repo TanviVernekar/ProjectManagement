@@ -7,47 +7,65 @@
   /* margin-top: 46px; */
 
   /* justify-content: space-between; */
-  padding: 0;
-  border: solid green;
+  /* padding: 0; */
+  /* border: solid green; */
   /* height: 37px; */
 
   list-style-type: none;
   height: 35px;
-  align-items: center;
+  /* align-items: center; */
 }
 .empcontainer {
   /* border: solid blue; */
   width: 50vw;
   text-align: center;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   /* border-right: solid #5e66ad; */
   height: 35px;
   /* border: solid green; */
   /* background-color: #DBDEF7; */
   background-color: #9BA3ED;
+  display: flex;
 }
-.emplink {
-  text-decoration: none;
-  /* align-self: center; */
-  /* margin-top: 10px; */
-  text-align: center;
-}
+
 .projcontainer {
   /* border: solid blue; */
   height: 35px;
-
+display: flex;
   width: 50vw;
   text-align: center;
+  justify-content: center;
+  align-items: center;
   background-color: #9BA3ED;
 }
-.projlink {
-  text-decoration: none;
-}
-
 .active {
-  /* background-color: #DBDEF7 */
-  background-color: aqua;
+  /* width: 25vw; */
+  background-color: #DBDEF7
+  /* background-color: aqua; */
   /* border-bottom: 2px solid #ffd639; */
 }
+.emplink {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+.projlink {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: black;
+
+}
+
+
 
