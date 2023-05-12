@@ -1,0 +1,70 @@
+
+<div class="main-container">
+    
+    <div class="header-container">
+
+        <span class="dialog-header">New employee</span>
+        <mat-icon aria-hidden="false" aria-label=" home " fontIcon="close" mat-dialog-close class="icon" ></mat-icon>
+    </div>
+
+    <div class="MainDiv">
+        <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-div">
+    
+          <label for="name" class="name">Name </label>
+          <input
+          id="name"
+          type="text"
+          formControlName="name"
+          class="input"
+        />
+
+          <label for="designation" class="designation">Designation </label>
+          <input
+          id="designation"
+          type="text"
+          formControlName="designation"
+          class="input"
+        />
+          <label for="joiningDate" class="joiningdate">Joining date </label>
+          <input
+            id="joiningDate"
+            type="date"
+            formControlName="joiningDate"
+            class="input"
+          />
+
+          <label for="technologies" class="technologies">Technologies </label>
+          <input
+            id="technologies"
+            type="text"
+            formControlName="technologies"
+            class="input1"
+          />
+        <div class="btn-container">
+
+          <div class="submit-button">
+            <button
+              
+              class="cancelbtn"
+              mat-dialog-close
+            >
+              Cancel
+            </button>
+          </div>
+          <div class="submit-button">
+            <button
+              class="submitBtn"
+              [disabled]="!addForm.valid"
+              type="submit"
+              mat-dialog-close
+             
+            >
+              Save
+            </button>
+          </div>
+
+        </div>
+        </form>
+    </div>
+
+</div>

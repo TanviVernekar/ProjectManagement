@@ -1,12 +1,12 @@
 <div class="main-container">
-<!-- <app-header></app-header> -->
+  <app-header (event)="receiveloginstatus($event)" ></app-header>
   <div class="inner-container">
-    <div *ngIf="loginButton === true" class="descriptionContainer">
+    <div *ngIf="loginstatus == true" class="descriptionContainer">
       <span class="short-name">RMT</span>
       <span class="full-name"> Resource Management Tool</span>
     </div>
 
-    <div *ngIf="loginButton === false" class="loginContainer">
+    <div *ngIf="loginstatus == false" class="loginContainer">
       <div class="loginMainDiv">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-div">
           <label for="email" class="email">Email </label>

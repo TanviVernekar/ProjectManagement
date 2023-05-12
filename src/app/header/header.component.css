@@ -1,24 +1,31 @@
 .header {
     /* width:100%; */
-    height: 43px;
+    height: 55px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     background: #5e66ad;
+    /* align-items: center; */
+    padding-left: 15px;
+    padding-right: 15px;
+    border: solid red;
+  }
+  .container1{
+    border: solid green;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
   }
   .header-name {
     width: 151px;
     height: 16px;
-    left: 20px;
-    top: 13px;
+
   
     /* font-family: 'Inter'; */
     font-style: normal;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 15px;
   
     color: #ffffff;

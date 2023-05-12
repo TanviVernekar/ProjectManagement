@@ -2,7 +2,7 @@
 <div class="main-container">
     <div class="left-container">
         <span class="allempoyee">All Employees</span>
-        <button class="btn">Add</button>
+        <button class="btn" (click)=" openDialog()">Add</button>
         <input type="text" name="search" placeholder="Search" class="searchinput">
         <div class="list-container">
             <div class="lists" *ngFor="let list of data">

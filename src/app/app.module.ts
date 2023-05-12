@@ -1,5 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MatDialogModule} from '@angular/material/dialog'
+import {MatIconModule} from '@angular/material/icon';
+
+
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +17,10 @@ import { TabnavigationComponent } from './tabnavigation/tabnavigation.component'
 import { HeaderComponent } from './header/header.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { CommonModule } from '@angular/common';
+import { AddemployeeComponent } from './addemployee/addemployee.component';
+import { AddProjectComponent } from './add-project/add-project.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +29,9 @@ import { ProjectsComponent } from './projects/projects.component';
     TabnavigationComponent,
     HeaderComponent,
     EmployeeComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    AddemployeeComponent,
+    AddProjectComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +39,11 @@ import { ProjectsComponent } from './projects/projects.component';
     BrowserAnimationsModule,
     MatButtonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    CommonModule,
+    MatIconModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

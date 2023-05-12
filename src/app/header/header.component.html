@@ -1,4 +1,10 @@
 <div class="header">
+  <div *ngIf="logoutStatus === false" class="container1">
     <span class="header-name">RMT</span>
     <button (click)="login()" mat-flat-button>Login</button>
   </div>
+  <div *ngIf="logoutStatus === true" class="container1">
+    <span class="header-name">RMT</span>
+    <button mat-flat-button>LogOut</button>
+  </div>
+</div>

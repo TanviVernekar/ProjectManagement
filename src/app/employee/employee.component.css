@@ -49,12 +49,13 @@ color: #000000;
     border: none;
 }
 .searchinput{
-      width: 50%;
+      width: 34%;
     box-sizing: border-box;
     height: 48px;
     background: #FFFFFF;
     border: 2px solid #474242;
     margin: 15px 0 15px 35px;
+    font-size: 22px;
 }
 .searchinput::placeholder{
     font-size: 22px;
@@ -82,7 +83,7 @@ color: #CDBEBE;
 }
 .lists{
      /* box-sizing: border-box; */
-    width: 51%;
+    width: 35%;
     height: 35px;
     border: 1px solid #5E66AD;
     padding-top: 14px;

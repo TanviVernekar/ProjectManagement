@@ -22,7 +22,7 @@
   justify-content: center;
   align-items: center;
   /* border-right: solid #5e66ad; */
-  height: 35px;
+  height: 45px;
   /* border: solid green; */
   /* background-color: #DBDEF7; */
   background-color: #9BA3ED;
@@ -31,7 +31,7 @@
 
 .projcontainer {
   /* border: solid blue; */
-  height: 35px;
+  height: 45px;
 display: flex;
   width: 50vw;
   text-align: center;
@@ -54,6 +54,8 @@ display: flex;
     display: flex;
     align-items: center;
     color: black;
+    font-size: 22px;
+    font-weight: 700;
 }
 .projlink {
     width: 100%;
@@ -64,6 +66,8 @@ display: flex;
     display: flex;
     align-items: center;
     color: black;
+    font-size: 22px;
+    font-weight: 700;
 
 }
 

@@ -1,13 +1,13 @@
 <div class="container">
-  <!-- <app-header></app-header> -->
+  <app-header></app-header>
   <div class="inner-container">
     <div class="empcontainer">
       <a
         routerLink="/employee"
         [routerLinkActive]="active"
-        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLinkActiveOptions]= "{ exact : true }"
         class="emplink"
-        >Employee</a
+        >Employees</a
       >
     </div>
     <div class="projcontainer">
