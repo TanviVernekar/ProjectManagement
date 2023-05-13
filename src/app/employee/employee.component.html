@@ -5,12 +5,12 @@
         <button class="btn" (click)=" openDialog()">Add</button>
         <input type="text" name="search" placeholder="Search" class="searchinput">
         <div class="list-container">
-            <div class="lists" *ngFor="let list of data">
+            <div class="lists" *ngFor="let list of data" (click)="openempDetail()">
                 <span class="peremployee">{{list}}</span>
             </div>
         </div>
     </div>
-    <div class="right-container">
+    <div class="right-container" *ngIf="openemp === true">
         <span class="title">Name:<span class="description"> &nbsp; Employee</span></span>
         <br>
         <span class="title">Designation:<span class="description"> &nbsp;Software engineer</span></span>

@@ -27,4 +27,16 @@ export class ServiceService {
   addEmployee(data){
     return this.http.post('https://project-management-tool-dff6f-default-rtdb.asia-southeast1.firebasedatabase.app/employees.json',data)
   }
+
+  getProjectListApi(){
+    return  this.http.get('https://project-management-tool-dff6f-default-rtdb.asia-southeast1.firebasedatabase.app/projects.json',{
+      params:{
+        key:'AIzaSyDEenVAbz9MYo4r96CxIfxLPFNQcyrMD1U'
+      }
+    })
+  }
+
+  addProject(data){
+    return this.http.post('https://project-management-tool-dff6f-default-rtdb.asia-southeast1.firebasedatabase.app/projects.json',data)
+  }
 }

@@ -1,7 +1,9 @@
 .container {
-  height: 100vh;
+  height: 90vh;
   width: 100vw;
   margin: auto 0;
+  /* background-color: #5E66AD; */
+
 }
 
 
@@ -29,8 +31,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border: solid green; */
-  height: calc(100vh - 43px);
+  /* border: 5px solid green; */
+  height: calc(100vh - 55px);
   justify-content: center;
 }
 .descriptionContainer {
@@ -66,12 +68,14 @@
 .loginMainDiv {
   display: flex;
   flex-direction: column;
-  /* border: solid red; */
-  width: 30vw;
-  height: 25vh;
+  border: 1px solid  #5E66AD;
+  
+  width: 25vw;
+  height: 22vh;
   /* text-align: center; */
   /* align-self: center; */
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  border-radius: 8px;
 }
 .form-div {
   display: flex;
@@ -86,6 +90,7 @@
   line-height: 15px;
   /* identical to box height */
   margin-bottom: 15px;
+  margin-left: 20px;
 
   color: #000000;
 }
@@ -97,29 +102,38 @@
   line-height: 15px;
   /* identical to box height */
   margin: 15px 0;
-
+  margin-left: 20px;
   color: #000000;
 }
 .input {
-  width: 25vw;
+  width: 20vw;
   height: 32px;
   left: 161px;
   top: 262px;
 
   border: 1px solid #000000;
   margin-bottom: 20px;
+  margin-left: 20px;
+  font-size: 16px;
+  padding-left: 10px;
 }
 .input:focus {
   outline: none;
 }
+.submit-button{
+    /* border: solid green; */
+    /* height: fit-content; */
+    
+    margin-top: 60px;
+}
 .submitBtn {
-  background-color: #5e66ad;
+  background-color:  #9BA3ED;;
 
-  width: 139px;
-  height: 35px;
-  margin: 35px 60px 20px 0;
+  width: 200px;
+  height: 40px;
+  /* margin: 60px 60px 20px 0; */
   align-self: flex-end;
-
+  /* margin-left: 80px; */
   float: right;
   border-radius: 6px;
   outline: none;
@@ -129,7 +143,7 @@
 /* font-family: 'Inter'; */
 font-style: normal;
 font-weight: 700;
-font-size: 14px;
+font-size: 18px;
 line-height: 15px;
 /* identical to box height */
 color: #000000;
@@ -137,6 +151,7 @@ color: #000000;
 .errormsg{
     color: red;
     font-size: 12px;
-    margin-top: -20px;
-    width: 25vw;
+    margin-top: -18px;
+    width: 20vw;
+    margin-left: 22px;
 }

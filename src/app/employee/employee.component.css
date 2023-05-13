@@ -49,7 +49,7 @@ color: #000000;
     border: none;
 }
 .searchinput{
-      width: 34%;
+      width: 340px;
     box-sizing: border-box;
     height: 48px;
     background: #FFFFFF;
@@ -83,7 +83,7 @@ color: #CDBEBE;
 }
 .lists{
      /* box-sizing: border-box; */
-    width: 35%;
+    width: 340px;
     height: 35px;
     border: 1px solid #5E66AD;
     padding-top: 14px;

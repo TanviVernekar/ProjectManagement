@@ -16,15 +16,18 @@ constructor(private service:ServiceService){}
   ngOnInit(): void {
     this.event.emit(this.loginButton)
    this.logoutStatus= this.service.getLogstatus()
+   
   }
 
   login(){
+    
     this.loginButton=false
     this.event.emit(this.loginButton)
+
   }
-  refresh() {
-    
-      window.location.reload();
+  // refresh() {
+  //     window.location.reload();
       
-  }
+  // }
+
 }

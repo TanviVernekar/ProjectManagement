@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddProjectComponent } from '../add-project/add-project.component';
+import { ServiceService } from '../services/service.service';
 
 @Component({
   selector: 'app-projects',
@@ -8,12 +9,12 @@ import { AddProjectComponent } from '../add-project/add-project.component';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit{
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private service:ServiceService) {}
   ngOnInit(): void {
-    
+    this.projectListDetails()
   }
 
-
+  projectList:any = [];
 
   data:any=[
     {
@@ -54,6 +55,13 @@ export class ProjectsComponent implements OnInit{
      
       // panelClass: 'full-screen-modal',
      
+    });
+  }
+
+  projectListDetails() {
+    this.service.getProjectListApi().subscribe((response) => {
+      this.projectList = response;
+      console.log("ppp",response);
     });
   }
 }
