@@ -21,6 +21,8 @@ import { CommonModule } from '@angular/common';
 import { AddemployeeComponent } from './addemployee/addemployee.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FilterpipePipe } from './Pipes/filterpipe.pipe';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     ProjectsComponent,
     AddemployeeComponent,
     AddProjectComponent,
+    FilterpipePipe,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     CommonModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -17,26 +17,34 @@ export class ServiceService {
   }
 
   getEmpListApi(){
-   return  this.http.get('https://project-management-tool-dff6f-default-rtdb.asia-southeast1.firebasedatabase.app/employees.json',{
-      params:{
-        key:'AIzaSyDEenVAbz9MYo4r96CxIfxLPFNQcyrMD1U'
+   return  this.http.get('https://pmt-service.onrender.com/api/employees',{
+      headers:{
+        'x-api-key':'secrt-dev-1505'
       }
     })
   }
 
   addEmployee(data){
-    return this.http.post('https://project-management-tool-dff6f-default-rtdb.asia-southeast1.firebasedatabase.app/employees.json',data)
+    return this.http.post('https://pmt-service.onrender.com/api/employees',{
+      headers:{
+        'x-api-key':'secrt-dev-1505'
+      }
+    },data)
   }
 
   getProjectListApi(){
-    return  this.http.get('https://project-management-tool-dff6f-default-rtdb.asia-southeast1.firebasedatabase.app/projects.json',{
-      params:{
-        key:'AIzaSyDEenVAbz9MYo4r96CxIfxLPFNQcyrMD1U'
+    return  this.http.get('https://pmt-service.onrender.com/api/projects',{
+      headers:{
+        'x-api-key':'secrt-dev-1505'
       }
     })
   }
 
   addProject(data){
-    return this.http.post('https://project-management-tool-dff6f-default-rtdb.asia-southeast1.firebasedatabase.app/projects.json',data)
+    return this.http.post('https://pmt-service.onrender.com/api/projects',{
+      headers:{
+        'x-api-key':'secrt-dev-1505'
+      }
+    },data)
   }
 }

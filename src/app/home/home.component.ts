@@ -14,6 +14,11 @@ export class HomeComponent implements OnInit{
 logout:boolean=false
 
 loginForm! : FormGroup;
+
+
+
+signupusers:any=[]; 
+isUserExist :any;
 // loginForm = new FormGroup({
 //   email: new FormControl(''),
 //   password: new FormControl(''),
@@ -28,11 +33,19 @@ constructor(private fb: FormBuilder,private router:Router,private service:Servic
 
 loginstatus:boolean;
 ngOnInit(){
+ 
   this.loginForm = this.fb.group({
-    'email': new FormControl('',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
-    'password': new FormControl('',[Validators.required,Validators.minLength(5),Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/)]),
+    email: new FormControl('',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+    password: new FormControl('',[Validators.required,Validators.minLength(5),Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/)]),
    
   });
+
+
+  const localdata = localStorage.getItem('signupusers');
+  console.log("local data",localdata)
+  if(localdata != null){
+    this.signupusers = JSON.parse(localdata);
+  }
 }
 // login(){
 //   this.loginButton=false
@@ -44,12 +57,36 @@ receiveloginstatus($event:boolean){
 }
 
 onSubmit() {
-  console.log(this.loginForm.value);
-  console.log(this.loginForm.status)
+  console.log(this.loginForm.value.password);
+  // console.log(this.loginForm.status)
 
   this.logout=true
   this.service.setLogStatus(this.logout)
   console.log("logout",this.logout)
-  this.router.navigate(['/employee'])
+
+let isUserExist
+  if( isUserExist = this.signupusers.find(m => m.email === this.loginForm.value.email && m.password === this.loginForm.value.password)){
+    console.log("login",this.signupusers)
+    if(this.isUserExist !== null){
+      console.log('sucess')
+      this.router.navigate(['/employee']);
+    }
+  }else if(isUserExist = this.signupusers.find(m => m.email === this.loginForm.value.email && m.password !== this.loginForm.value.password)){
+    alert('please enter valid password')
+  }
+  else{
+    this.signupusers.push(this.loginForm.value)
+    console.log("array",this.signupusers)
+    console.log('register')
+    localStorage.setItem('signupusers',JSON.stringify(this.signupusers))
+    this.router.navigate(['/employee']);
+  }
+ 
+
+
+  
 }
+
+
 }
+

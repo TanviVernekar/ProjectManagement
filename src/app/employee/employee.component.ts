@@ -9,20 +9,52 @@ import { ServiceService } from '../services/service.service';
   styleUrls: ['./employee.component.css'],
 })
 export class EmployeeComponent implements OnInit {
-  constructor(public dialog: MatDialog, private service: ServiceService) {}
-  ngOnInit(): void {
-    this.employeeListDetails();
-  }
-  openemp:boolean=false
+
+  filterstring: string = '';
+  employeeList: any=[];
+
   data: any = [
-    'employee1',
-    'employee2',
-    'employee3',
-    'employee4',
-    'empployee5',
-    'employee6',
+    {
+      name:'tanvi',
+      designation:'developer',
+    },
+    {
+      name:'ashu',
+      designation:'developer',
+    },
+    {
+      name:'pooja',
+      designation:'developer',
+    },
+    {
+      name:'gowri',
+      designation:'developer',
+    },
+    {
+      name:'noor',
+      designation:'developer',
+    },
+    {
+      name:'shilpa',
+      designation:'developer'
+    }
+    
   ];
-  employeeList: any;
+
+  constructor(public dialog: MatDialog, private service: ServiceService) {}
+
+  ngOnInit(): void {
+    this.employeeListDetails()
+    console.log(this.data)
+  }
+  // openemp:boolean=false
+
+  //  filteredEmployee=[]
+  // show:number;
+
+
+
+  
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddemployeeComponent, {
@@ -34,14 +66,20 @@ export class EmployeeComponent implements OnInit {
   }
 
   openempDetail(){
-this.openemp=true
+    // console.log("term",this.term)
+    // this.openemp=true
+    // this.show = event
+   
+    console.log('ts',event)
+
+
   }
 
 
   employeeListDetails() {
     this.service.getEmpListApi().subscribe((response) => {
       this.employeeList = response;
-      console.log(response);
+      console.log("resss",response);
     });
   }
 }

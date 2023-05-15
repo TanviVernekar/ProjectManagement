@@ -1,5 +1,8 @@
 .container {
-  /* border: solid red; */
+  border: solid yellow;
+  height: 105px;
+  width: 100%;
+  /* display: flex; */
 }
 .inner-container {
   display: flex;
@@ -8,11 +11,11 @@
 
   /* justify-content: space-between; */
   /* padding: 0; */
-  /* border: solid green; */
+  border: solid green;
   /* height: 37px; */
-
+  /* width: 100vw; */
   list-style-type: none;
-  height: 35px;
+  height: 45px;
   /* align-items: center; */
 }
 .empcontainer {

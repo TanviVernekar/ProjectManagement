@@ -15,6 +15,7 @@ export class ProjectsComponent implements OnInit{
   }
 
   projectList:any = [];
+  term:string
 
   data:any=[
     {

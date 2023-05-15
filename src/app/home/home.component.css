@@ -1,8 +1,10 @@
 .container {
   height: 90vh;
-  width: 100vw;
-  margin: auto 0;
+  /* border:5px solid blue; */
+  width: 100vw; 
+   margin: auto 0;
   /* background-color: #5E66AD; */
+  /* display: flex; */
 
 }
 
@@ -70,7 +72,7 @@
   flex-direction: column;
   border: 1px solid  #5E66AD;
   
-  width: 25vw;
+  width:fit-content;
   height: 22vh;
   /* text-align: center; */
   /* align-self: center; */
@@ -119,7 +121,9 @@
 }
 .input:focus {
   outline: none;
+  background-color: #DBDEF7;
 }
+
 .submit-button{
     /* border: solid green; */
     /* height: fit-content; */

@@ -5,7 +5,7 @@
         <button class="btn" (click)=" openDialog()">Add</button>
         <input type="text" name="search" placeholder="Search" class="searchinput">
         <div class="list-container">
-            <div class="lists" *ngFor="let list of data">
+            <div class="lists" *ngFor="let list of data ">
                 <span class="peremployee">{{list.name}}</span>
                 <span class="perstatus">{{list.status}}</span>
 

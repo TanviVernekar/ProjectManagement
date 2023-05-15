@@ -1,25 +1,51 @@
 <app-tabnavigation></app-tabnavigation>
 <div class="main-container">
-    <div class="left-container">
-        <span class="allempoyee">All Employees</span>
-        <button class="btn" (click)=" openDialog()">Add</button>
-        <input type="text" name="search" placeholder="Search" class="searchinput">
-        <div class="list-container">
-            <div class="lists" *ngFor="let list of data" (click)="openempDetail()">
-                <span class="peremployee">{{list}}</span>
-            </div>
-        </div>
+  <div class="left-container">
+    <span class="allempoyee">All Employees</span>
+    <button class="btn" (click)="openDialog()">Add</button>
+    <input
+      type="text"
+      name="search"
+      placeholder="Search"
+      class="searchinput"
+      [(ngModel)]="filterstring"
+      />
+      <!-- (input)="" -->
+      <div class="list-container">
+      <div
+          class="lists"
+        *ngFor="let list of data | filterpipe:filterstring"
+        (click)="openempDetail()"
+      >
+        <span class="peremployee">{{list.name}}</span>
+      </div>
     </div>
-    <div class="right-container" *ngIf="openemp === true">
-        <span class="title">Name:<span class="description"> &nbsp; Employee</span></span>
-        <br>
-        <span class="title">Designation:<span class="description"> &nbsp;Software engineer</span></span>
-        <br>
-        <span class="title">Joining date:<span class="description">&nbsp; 12/11/22</span></span>
-        <br>
-        <span class="title"> Tecnologies:<span class="description">&nbsp; Angular, ReactJs,
-            NodeJs</span></span>
-            <br>
-        <span class="title">Active projects:<span class="description">&nbsp; Project1, Project2</span></span>
-    </div>
+  </div>
+
+  <!-- <div *ngFor="let list of data; let i = index">
+    <div class="right-container" *ngIf="openemp === true && show === i"> -->
+  <div class="right-container">
+    <span class="title">Name:<span class="description"> &nbsp; </span></span>
+    <br />
+    <span class="title"
+      >Designation:<span class="description"> &nbsp;</span></span
+    >
+    <br />
+    <span class="title"
+      >Joining date:<span class="description">&nbsp; 12/11/22</span></span
+    >
+    <br />
+    <span class="title">
+      Tecnologies:<span class="description"
+        >&nbsp; Angular, ReactJs, NodeJs</span
+      ></span
+    >
+    <br />
+    <span class="title"
+      >Active projects:<span class="description"
+        >&nbsp; Project1, Project2</span
+      ></span
+    >
+  </div>
+  <!-- </div> -->
 </div>
