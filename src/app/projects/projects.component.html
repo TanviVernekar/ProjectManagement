@@ -1,28 +1,43 @@
-<app-tabnavigation></app-tabnavigation>
+<div class="header">
+    <div *ngIf="logoutStatus === true" class="container1">
+      <span class="header-name">RMT</span>
+      <button mat-flat-button>Login</button>
+    </div>
+    <div *ngIf="logoutStatus === false" class="container1" >
+      <span class="header-name">RMT</span>
+      <button (click)="logout()" mat-flat-button>LogOut</button>
+    </div>
+  
+    
+  </div>
+  <app-tabnavigation></app-tabnavigation>
+  
 <div class="main-container">
     <div class="left-container">
         <span class="allempoyee">All projects</span>
         <button class="btn" (click)=" openDialog()">Add</button>
-        <input type="text" name="search" placeholder="Search" class="searchinput">
+        <input type="text" name="search" placeholder="Search" class="searchinput" [(ngModel)]="filterstring">
         <div class="list-container">
-            <div class="lists" *ngFor="let list of data ">
+            <div class="lists" *ngFor="let list of projectList | filterpipe:filterstring" (click)="openempDetail(list)">
                 <span class="peremployee">{{list.name}}</span>
                 <span class="perstatus">{{list.status}}</span>
 
             </div>
         </div>
     </div>
-    <div class="right-container">
-        <span class="title">Name:<span class="description"> &nbsp; Project1</span></span>
+    <div class="right-container"  *ngIf="openemp === true">
+        <span class="title">Name:<span class="description"> &nbsp; {{perproject.name}}</span></span>
         <br>
-        <span class="title">Status:<span class="description"> &nbsp;yet to start</span></span>
+        <span class="title">Status:<span class="description"> &nbsp;{{perproject.status}}</span></span>
         <button class="closebtn">Close</button>
         <br>
-        <span class="title">Joining date:<span class="description">&nbsp; 12/11/22</span></span>
+        <span class="title">Start date:<span class="description">&nbsp; {{perproject.startDate}}</span></span>
         <br>
-        <span class="title"> Tecnologies:<span class="description">&nbsp; Angular, ReactJs,
-            NodeJs</span></span>
+        <span class="title"> Tecnologies:<span class="description">&nbsp; {{perproject.technologies}}</span></span>
             <br>
-        <span class="title">Active projects:<span class="description">&nbsp;<a class="link"  routerLink="/employee"> Employee1, Employee2, Employee3 </a></span></span>
+            <div *ngFor="let emp of perproject.employees">
+
+                <span class="title">Developers:<span class="description">&nbsp;<a class="link"  routerLink="/employee"> {{emp.name}} </a></span></span>
+            </div>
     </div>
 </div>

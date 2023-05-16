@@ -18,13 +18,16 @@
           class="input"
         />
 
-          <label for="designation" class="designation">Designation </label>
+          <label for="technologies" class="technologies">Designation </label>
           <input
-          id="designation"
+          id="technologies"
           type="text"
-          formControlName="designation"
+          formControlName="technologies"
           class="input"
         />
+
+       
+
           <label for="startDate" class="joiningdate">Start date </label>
           <input
             id="startDate"
@@ -33,13 +36,12 @@
             class="input"
           />
 
-          <label for="employees" class="technologies">Employees </label>
-          <input
-            id="employees"
-            type="text"
-            formControlName="employees"
-            class="input1"
-          />
+          <label for="employee" class="technologies">Employees </label>
+          <select id="employee" formControlName="employees" class="input1">
+            <option *ngFor = "let opt of employees" [value]="opt.id">{{opt.name}}</option>
+          </select>
+
+        
         <div class="btn-container">
 
           <div class="submit-button">

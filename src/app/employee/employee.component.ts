@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddemployeeComponent } from '../addemployee/addemployee.component';
 import { ServiceService } from '../services/service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -10,8 +11,16 @@ import { ServiceService } from '../services/service.service';
 })
 export class EmployeeComponent implements OnInit {
 
+
+  
+  // loginButton:boolean=true
+  openemp:boolean=false
+
+  logoutStatus:boolean=false
+
   filterstring: string = '';
   employeeList: any=[];
+  peremployee:any
 
   data: any = [
     {
@@ -31,21 +40,21 @@ export class EmployeeComponent implements OnInit {
       designation:'developer',
     },
     {
-      name:'noor',
+      name:'Noor',
       designation:'developer',
     },
     {
-      name:'shilpa',
+      name:'shilpuuu',
       designation:'developer'
     }
     
   ];
 
-  constructor(public dialog: MatDialog, private service: ServiceService) {}
+  constructor(public dialog: MatDialog, private service: ServiceService,private router:Router) {}
 
   ngOnInit(): void {
     this.employeeListDetails()
-    console.log(this.data)
+    // console.log(this.data)
   }
   // openemp:boolean=false
 
@@ -54,6 +63,30 @@ export class EmployeeComponent implements OnInit {
 
 
 
+  // login(){
+    
+  //   this.loginButton=false
+  //   // this.event.emit(this.loginButton)
+
+  // }
+
+  logout(){
+    // localStorage.removeItem()
+    // alert('clicked')
+    // this.loginButton=true
+    // this.event.emit(this.loginButton)
+  // this.logoutStatus = false
+  // console.log("lgsts",this.logoutStatus)
+    // this.router.navigate(['']);
+    this.logoutStatus=true
+    // localStorage.removeItem('signupusers')
+    // console.log(loginForm.value)
+    // localStorage.removeItem('authstatus')
+    localStorage.setItem('authstatus',JSON.stringify(false));
+
+
+    this.router.navigate(['']);
+  }
   
 
   openDialog(): void {
@@ -65,13 +98,18 @@ export class EmployeeComponent implements OnInit {
     });
   }
 
-  openempDetail(){
+  openempDetail(data){
     // console.log("term",this.term)
-    // this.openemp=true
+    this.openemp=true
     // this.show = event
-   
+    this.peremployee = data
+   console.log("data",data)
     console.log('ts',event)
 
+  }
+  handlechange(){
+    this.openemp=false
+    console.log(this.openemp)
 
   }
 

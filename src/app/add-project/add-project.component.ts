@@ -8,14 +8,30 @@ import { ServiceService } from '../services/service.service';
 })
 export class AddProjectComponent {
   addProjForm! : FormGroup;
+
+ employees=[
+  {
+    id:1,
+    name:'employee1'
+  },
+  {
+    id:2,
+    name:'employee2'
+  },
+  {
+    id:3,
+    name:'employee2'
+  },
+ ]
   constructor(private fb: FormBuilder,private service:ServiceService) { }
   ngOnInit(): void {
     this.addProjForm = this.fb.group({
       'name': new FormControl(''),
-      'designation': new FormControl(''),
+      'technologies': new FormControl(''),
       'startDate': new FormControl(''),
       'employees': new FormControl(''), 
     });
+    
   }
 
 

@@ -25,11 +25,11 @@ export class ServiceService {
   }
 
   addEmployee(data){
-    return this.http.post('https://pmt-service.onrender.com/api/employees',{
+    return this.http.post('https://pmt-service.onrender.com/api/employees',data,{
       headers:{
         'x-api-key':'secrt-dev-1505'
       }
-    },data)
+    })
   }
 
   getProjectListApi(){
@@ -41,10 +41,10 @@ export class ServiceService {
   }
 
   addProject(data){
-    return this.http.post('https://pmt-service.onrender.com/api/projects',{
+    return this.http.post('https://pmt-service.onrender.com/api/projects',data,{
       headers:{
         'x-api-key':'secrt-dev-1505'
       }
-    },data)
+    })
   }
 }

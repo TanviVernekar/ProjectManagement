@@ -8,11 +8,12 @@ export class FilterpipePipe implements PipeTransform {
   transform(value: any,filterstring : string) {
     console.log("filtered string",filterstring)
     if(value.length === 0 || filterstring === ''){
+    
       return value;
     }
     const employees = [];
     for(const employee of value){
-      if(employee['name'] === filterstring){
+      if(employee['name'].toLowerCase().includes(filterstring.toLocaleLowerCase())){
         employees.push(employee);
         console.log("list",employee)
       }

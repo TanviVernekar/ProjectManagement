@@ -1,5 +1,12 @@
 <div class="main-container">
-  <app-header (event)="receiveloginstatus($event)" ></app-header>
+  <!-- <app-header (event)="receiveloginstatus($event)" ></app-header> -->
+  <div class="header">
+    <div class="container1">
+      <span class="header-name">RMT</span>
+      <button (click)="login()" mat-flat-button>Login</button>
+    </div>
+  </div>
+
   <div class="inner-container">
     <div *ngIf="loginstatus == true" class="descriptionContainer">
       <span class="short-name">RMT</span>

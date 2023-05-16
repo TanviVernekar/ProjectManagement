@@ -17,14 +17,14 @@
           formControlName="name"
           class="input"
         />
+  
+        <label for="designationId" class="designation">Designation </label>
+        <select id="designationId" formControlName="designationId" class="input">
+          <!-- <option [ngValue]="null" disabled>Select designation</option> -->
+          <option *ngFor = "let opt of designation" [value]="opt.id">{{opt.name}}</option>
+        </select>
+  
 
-          <label for="designation" class="designation">Designation </label>
-          <input
-          id="designation"
-          type="text"
-          formControlName="designation"
-          class="input"
-        />
           <label for="joiningDate" class="joiningdate">Joining date </label>
           <input
             id="joiningDate"

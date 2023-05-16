@@ -10,11 +10,36 @@ import { ServiceService } from '../services/service.service';
 export class AddemployeeComponent implements OnInit{
 
   addForm! : FormGroup;
+
+
+  designation=[
+    {
+        "id": 1,
+        "name": "Developer"
+    },
+    {
+        "id": 2,
+        "name": "QA"
+    },
+    {
+        "id": 3,
+        "name": "Manager"
+    },
+    {
+        "id": 4,
+        "name": "TL"
+    },
+    {
+        "id": 5,
+        "name": "TA"
+    }
+]
+
   constructor(private fb: FormBuilder,private service:ServiceService) { }
   ngOnInit(): void {
     this.addForm = this.fb.group({
       'name': new FormControl(''),
-      'designation': new FormControl(''),
+      'designationId': new FormControl(),
       'joiningDate': new FormControl(''),
       'technologies': new FormControl(''), 
     });
@@ -25,7 +50,8 @@ export class AddemployeeComponent implements OnInit{
     console.log(this.addForm.value);
     console.log(this.addForm.status)
     console.log("I am clicked  ")
-    this.service.addEmployee( this.addForm.value).subscribe((response)=>{
+    
+    this.service.addEmployee(this.addForm.value).subscribe((response)=>{
 console.log(response)
     })
     
