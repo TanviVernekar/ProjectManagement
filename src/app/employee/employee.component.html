@@ -28,8 +28,8 @@
       (change)="handlechange()"
       />
       <!-- (input)="" -->
-      <div class="list-container">
-      <div
+      <div class="list-container" >
+      <div [ngStyle]="{'background-color':list?.id === peremployee?.id ? '#DBDEF7' :'transparent' }"
           class="lists"
         *ngFor="let list of employeeList | filterpipe:filterstring"
         (click)="openempDetail(list)"

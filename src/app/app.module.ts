@@ -22,6 +22,7 @@ import { AddemployeeComponent } from './addemployee/addemployee.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterpipePipe } from './Pipes/filterpipe.pipe';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { FilterpipePipe } from './Pipes/filterpipe.pipe';
     CommonModule,
     MatIconModule,
     HttpClientModule,
+    NgMultiSelectDropDownModule.forRoot()
   
   ],
   providers: [],

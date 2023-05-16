@@ -18,7 +18,8 @@
         <button class="btn" (click)=" openDialog()">Add</button>
         <input type="text" name="search" placeholder="Search" class="searchinput" [(ngModel)]="filterstring">
         <div class="list-container">
-            <div class="lists" *ngFor="let list of projectList | filterpipe:filterstring" (click)="openempDetail(list)">
+            <div class="lists" [ngStyle]="{'background-color':list?.id === perproject?.id ? '#DBDEF7' :'transparent' }"
+             *ngFor="let list of projectList | filterpipe:filterstring" (click)="openempDetail(list)">
                 <span class="peremployee">{{list.name}}</span>
                 <span class="perstatus">{{list.status}}</span>
 
@@ -36,7 +37,6 @@
         <span class="title"> Tecnologies:<span class="description">&nbsp; {{perproject.technologies}}</span></span>
             <br>
             <div *ngFor="let emp of perproject.employees">
-
                 <span class="title">Developers:<span class="description">&nbsp;<a class="link"  routerLink="/employee"> {{emp.name}} </a></span></span>
             </div>
     </div>

@@ -110,7 +110,7 @@
    
      border: 2px solid #000000;
      font-size: 20px;
-     padding-left: 5px;
+     /* padding-left: 5px; */
  
    }
    .input1:focus {
@@ -169,3 +169,23 @@
    /* identical to box height */
    color: #000000;
    }
+
+ ::ng-deep .multiselect-dropdown {
+    display: inline-block;
+    border: 2px solid black;
+    width: 70% !important;
+    height: 50% !important;
+
+    padding-right: 25px;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.1;
+    text-align: left;
+
+    cursor: pointer;
+
+    border-radius: 4px;
+}
+
+

@@ -18,7 +18,7 @@
           class="input"
         />
 
-          <label for="technologies" class="technologies">Designation </label>
+          <label for="technologies" class="technologies">Technologies </label>
           <input
           id="technologies"
           type="text"
@@ -36,10 +36,24 @@
             class="input"
           />
 
-          <label for="employee" class="technologies">Employees </label>
+          <!-- <label for="employee" class="technologies">Employees </label>
           <select id="employee" formControlName="employees" class="input1">
             <option *ngFor = "let opt of employees" [value]="opt.id">{{opt.name}}</option>
-          </select>
+          </select> -->
+          <label for="employee" class="technologies">Employees </label>
+          <div style="border: none;">
+
+            <ng-multiselect-dropdown
+        
+          [settings]="dropdownSettings"
+          [data]="employeeList"
+          optionLabel="name"
+          optionValue="id"
+          formControlName="employees"
+      (onSelect)="onItemSelect($event)"
+      (onDeSelect)="onItemDeSelect($event)">
+      </ng-multiselect-dropdown>
+          </div>
 
         
         <div class="btn-container">

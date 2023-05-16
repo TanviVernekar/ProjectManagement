@@ -47,4 +47,12 @@ export class ServiceService {
       }
     })
   }
+
+  getDesignationApi(){
+    return  this.http.get('https://pmt-service.onrender.com/api/designations',{
+       headers:{
+         'x-api-key':'secrt-dev-1505'
+       }
+     })
+   }
 }
