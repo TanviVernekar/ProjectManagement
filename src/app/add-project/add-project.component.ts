@@ -52,9 +52,7 @@ export class AddProjectComponent {
   }
 
   onSubmit() {
-    // console.log(this.addProjForm.value);
-    // console.log(this.addProjForm.status);
-    // console.log('I am clicked  ');
+
     const body = {
       ...this.addProjForm.value,
       employees:this.selectedId

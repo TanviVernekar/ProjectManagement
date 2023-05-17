@@ -131,8 +131,6 @@ export class EmployeeComponent implements OnInit {
           this.navigate();
         }
       }
-      
-
       console.log('ppp', response);
     });
   }

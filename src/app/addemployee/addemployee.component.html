@@ -19,7 +19,7 @@
         />
   
         <label for="designationId" class="designation">Designation </label>
-        <select id="designationId" formControlName="designationId" class="input">
+        <select id="designationId" formControlName="designationId" class="input" style="width:62%;height: 40px;">
           <!-- <option [ngValue]="null" disabled>Select designation</option> -->
           <option *ngFor = "let opt of designation" [value]="opt.id">{{opt.name}}</option>
         </select>
@@ -40,6 +40,9 @@
             formControlName="technologies"
             class="input1"
           />
+          <div *ngIf="!addForm.valid && submitted === true">
+            <span> Enter the details!</span>
+          </div>
         <div class="btn-container">
 
           <div class="submit-button">
@@ -51,13 +54,22 @@
               Cancel
             </button>
           </div>
-          <div class="submit-button">
+          <div class="submit-button" *ngIf="addForm.valid">
             <button
               class="submitBtn"
-              [disabled]="!addForm.valid"
+              
               type="submit"
-              mat-dialog-close
-             
+              mat-dialog-close 
+            >
+              Save
+            </button>
+          </div>
+          <div class="submit-button" *ngIf="!addForm.valid">
+            <button
+              class="submitBtn"
+              
+              type="submit"
+          
             >
               Save
             </button>
