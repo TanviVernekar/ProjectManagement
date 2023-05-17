@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ServiceService } from '../services/service.service';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 @Component({
@@ -37,10 +37,10 @@ export class AddProjectComponent {
 
 
     this.addProjForm = this.fb.group({
-      name: new FormControl(''),
-      technologies: new FormControl(''),
-      startDate: new FormControl(''),
-      employees: new FormControl(''),
+      name: new FormControl('',Validators.required),
+      technologies: new FormControl('',Validators.required),
+      startDate: new FormControl('',Validators.required),
+      employees: new FormControl('',Validators.required),
     });
     
     this.dropdownSettings = {
@@ -61,9 +61,9 @@ export class AddProjectComponent {
     }
   console.log("body",body);
   
-    this.service.addProject( this.addProjForm.value).subscribe((response)=>{
-      console.log(response)
-          })
+    // this.service.addProject(body).subscribe((response)=>{
+    //   console.log(response)
+    //       })
   }
 
 

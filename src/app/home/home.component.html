@@ -23,6 +23,7 @@
             placeholder="Enter email"
             formControlName="email"
             class="input"
+            (input)="onchange($event.target)"
           />
 
           <div
@@ -32,7 +33,7 @@
             class="errormsg"
           >
             <span>Enter a valid email</span>
-            <!-- <div *ngIf="loginForm.errors.['required']">
+            <!-- <div *ngIf="loginForm.errors.['required']" >
                     email is required.
                   </div> -->
           </div>
@@ -44,12 +45,13 @@
             placeholder="Enter password"
             formControlName="password"
             class="input"
+            (input)="onchange($event.target)"
           />
 
           <div
             *ngIf="
               !loginForm.get('password').valid &&
-              loginForm.get('password').touched
+              (loginForm.get('password').touched)
             "
             class="errormsg"
           >
@@ -57,15 +59,19 @@
               >Password should be atleast 5 characters long,one number,one
               character, one capital letter and one small letter</span
             >
-            <!-- <div *ngIf="password.errors.['required']">
+            <!-- <div *ngIf="!loginForm.valid">
                     email is required.
                   </div> -->
           </div>
+          <div class="error" *ngIf="!loginForm.valid && submitted === true">
+            <span> Enter the credentials</span>
+          </div>
           <div class="submit-button">
+           
             <button
               class="submitBtn"
               color="primary"
-              [disabled]="!loginForm.valid"
+              
               type="submit"
             >
               SignIn or Register

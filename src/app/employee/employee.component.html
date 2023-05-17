@@ -29,7 +29,7 @@
       />
       <!-- (input)="" -->
       <div class="list-container" >
-      <div [ngStyle]="{'background-color':list?.id === peremployee?.id ? '#DBDEF7' :'transparent' }"
+      <div [ngStyle]="{'background-color':list?.name === peremployee?.name ? '#DBDEF7' :'transparent' }"
           class="lists"
         *ngFor="let list of employeeList | filterpipe:filterstring"
         (click)="openempDetail(list)"
@@ -59,8 +59,8 @@
     >
     <br />
     <span class="title"
-      >Active projects:<span class="description"
-        >&nbsp; Project1, Project2</span
+      >Active projects:<span *ngIf="peremployee?.name === empname?.name" class="description"
+        >&nbsp; {{projectList?.name}}</span
       ></span
     >
   </div>

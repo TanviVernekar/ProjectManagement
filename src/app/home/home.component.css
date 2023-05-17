@@ -155,12 +155,18 @@
   outline: none;
   background-color: #DBDEF7;
 }
-
+.error{
+  /* border: solid red; */
+  margin-top: 15px;
+  color: red;
+  font-size: 14px;
+}
 .submit-button{
     /* border: solid green; */
     /* height: fit-content; */
     
-    margin-top: 60px;
+    margin-top: 40px;
+  
 }
 .submitBtn {
   background-color:  #9BA3ED;;
@@ -174,6 +180,7 @@
   border-radius: 6px;
   outline: none;
   border: none;
+
 
 
 /* font-family: 'Inter'; */

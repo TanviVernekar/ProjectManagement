@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddemployeeComponent } from '../addemployee/addemployee.component';
 import { ServiceService } from '../services/service.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -12,14 +12,19 @@ import { Router } from '@angular/router';
 export class EmployeeComponent implements OnInit {
 
 
+
   
   // loginButton:boolean=true
   openemp:boolean=false
 
   logoutStatus:boolean=false
+  employeeslt:any=[]
+ empname:any=[]
+  routerdata:any
 
   filterstring: string = '';
   employeeList: any=[];
+  projectList:any=[]
   peremployee:any
 
   data: any = [
@@ -50,11 +55,27 @@ export class EmployeeComponent implements OnInit {
     
   ];
 
-  constructor(public dialog: MatDialog, private service: ServiceService,private router:Router) {}
+  constructor(public dialog: MatDialog, private service: ServiceService,private router:Router,private route: ActivatedRoute
+   ) {
+    // this.routerdata=this.route?.snapshot.paramMap.get('name')
+   }
 
+  
   ngOnInit(): void {
     this.employeeListDetails()
-    // console.log(this.data)
+    this.projectListDetails()
+
+    for(const employee of this.projectList){
+      for(const peremp of employee.employees){
+          this.empname=this.employeeslt.push(peremp)
+          console.log("//",this.employeeslt)
+       
+      }
+    }
+   
+    // this.projectList.
+
+    // console.log(this.routerdata)
   }
   // openemp:boolean=false
 
@@ -103,8 +124,13 @@ export class EmployeeComponent implements OnInit {
     this.openemp=true
     // this.show = event
     this.peremployee = data
-   console.log("data",data)
-    console.log('ts',event)
+
+
+  
+   
+
+  //  console.log("data",data)
+    // console.log('ts',event)
 
   }
   handlechange(){
@@ -117,7 +143,14 @@ export class EmployeeComponent implements OnInit {
   employeeListDetails() {
     this.service.getEmpListApi().subscribe((response) => {
       this.employeeList = response;
-      console.log("resss",response);
+      // console.log("resss",response);
+    });
+  }
+
+  projectListDetails() {
+    this.service.getProjectListApi().subscribe((response) => {
+      this.projectList = response;
+      console.log("ppp",response);
     });
   }
 }

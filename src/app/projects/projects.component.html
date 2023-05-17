@@ -36,8 +36,8 @@
         <br>
         <span class="title"> Tecnologies:<span class="description">&nbsp; {{perproject.technologies}}</span></span>
             <br>
-            <div *ngFor="let emp of perproject.employees">
-                <span class="title">Developers:<span class="description">&nbsp;<a class="link"  routerLink="/employee"> {{emp.name}} </a></span></span>
+            <div>
+                <span class="title">Developers:<span *ngFor="let emp of perproject.employees" class="description">&nbsp;<a class="link"  routerLink="/employee"> {{emp.name}}</a></span></span>
             </div>
     </div>
 </div>
