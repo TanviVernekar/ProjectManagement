@@ -61,9 +61,9 @@ export class AddProjectComponent {
     }
   console.log("body",body);
   
-    // this.service.addProject(body).subscribe((response)=>{
-    //   console.log(response)
-    //       })
+    this.service.addProject(body).subscribe((response)=>{
+      console.log(response)
+          })
   }
 
 

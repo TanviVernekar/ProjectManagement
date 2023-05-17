@@ -1,8 +1,10 @@
 .main-container{
     /* padding:30px; */
-    /* border: solid red; */
+    /* height: 95%; */
+    border: solid red;
     height: fit-content;
-    padding-top: 20px;
+    padding-top: 30px;
+    overflow-y: scroll;
     
  }
  .header-container{
@@ -11,7 +13,7 @@
      flex-direction: row;
      justify-content: space-between;
      align-items: center;
-     padding-left: 25px;
+     padding-left: 35px;
      padding-right: 25px;
  }
  .dialog-header{
@@ -24,6 +26,9 @@
  
  color: #000000;
  }
+ ::-webkit-scrollbar {
+  display: none !important;
+}
  .icon{
    font-size: 28px;
      /* border:solid #5e66ad; */
@@ -40,7 +45,7 @@
      margin: 0 auto;
      padding-top: 25px;
      /* padding-top: 35px; */
-     padding-left: 14px;
+     padding-left: 25px;
    }
    .form-div {
      display: flex;
@@ -49,6 +54,7 @@
    }
    .name {
      /* font-family: 'Inter'; */
+     /* border: solid green; */
      font-style: normal;
      font-weight: 400;
      font-size: 22px;
@@ -56,7 +62,6 @@
      /* identical to box height */
      margin-top: 5px;
      margin-bottom: 10px;
-   
      color: #000000;
    }
    .designation {
@@ -120,7 +125,7 @@
      display: flex;
      flex-direction: row;
      justify-content: space-between;
-     margin: 35px 35px;
+     margin: 55px 0px 0px 55px;
   height: 20%;
      width: 70%;
      /* border: solid yellow; */
@@ -143,7 +148,7 @@
    font-style: normal;
    font-weight: 400;
    font-size: 25px;
-   line-height: 15px;
+   /* line-height: 15px; */
    /* identical to box height */
    color: #000000;
    }
@@ -172,10 +177,8 @@
 
  ::ng-deep .multiselect-dropdown {
     display: inline-block;
-    border: 2px solid black;
+    /* border: 2px solid red; */
     width: 70% !important;
-    height: 50% !important;
-
     padding-right: 25px;
     margin-bottom: 0;
     font-size: 12px;
@@ -186,6 +189,18 @@
     cursor: pointer;
 
     border-radius: 4px;
+}
+
+::ng-deep .multiselect-dropdown .dropdown-list[_ngcontent-fju-c21] {
+  position: none;
+  padding-top: 6px;
+  width: 100%;
+  /* z-index: 9999; */
+  /* border: 1px solid #ccc; */
+  border-radius: 3px;
+  background: #fff;
+  margin-top: 10px;
+  box-shadow: 0 1px 5px #959595;
 }
 
 

@@ -29,7 +29,7 @@
       />
       <!-- (input)="" -->
       <div class="list-container" >
-      <div [ngStyle]="{'background-color':list?.name === peremployee?.name ? '#DBDEF7' :'transparent' }"
+      <div [ngStyle]="{'background-color':list?.name === peremployee?.name  ? '#DBDEF7' :'transparent' }"
           class="lists"
         *ngFor="let list of employeeList | filterpipe:filterstring"
         (click)="openempDetail(list)"
@@ -39,9 +39,8 @@
     </div>
   </div>
 
-  <!-- <div *ngFor="let list of data; let i = index">
-    <div class="right-container" *ngIf="openemp === true && show === i"> -->
-  <div class="right-container" *ngIf="openemp === true">
+  
+  <div class="right-container" >
     <span class="title">Name:<span class="description"> &nbsp; {{peremployee?.name}} </span></span>
     <br />
     <span class="title"
@@ -58,10 +57,15 @@
       ></span
     >
     <br />
-    <span class="title"
-      >Active projects:<span *ngIf="peremployee?.name === empname?.name" class="description"
-        >&nbsp; {{projectList?.name}}</span
-      ></span
+    <span class="title-activeprojects"
+      >
+      <span class="activeprojects"> Active projects: </span>&nbsp;
+      <span>
+      <span *ngFor="let emp of employeeslt" class="description"
+        >&nbsp;{{emp}}
+      </span>
+      </span>
+  </span
     >
   </div>
   <!-- </div> -->

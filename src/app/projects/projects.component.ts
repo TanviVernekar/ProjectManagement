@@ -7,68 +7,74 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  styleUrls: ['./projects.component.css'],
 })
-export class ProjectsComponent implements OnInit{
-  constructor(public dialog: MatDialog, private service:ServiceService,private router:Router) {}
+export class ProjectsComponent implements OnInit {
+  constructor(
+    public dialog: MatDialog,
+    private service: ServiceService,
+    private router: Router
+  ) {}
 
   filterstring: string = '';
 
-  openemp:boolean=false
-  perproject:any
+  openemp: boolean = false;
+  perproject: any;
+
+  peremployee: any;
+
+  status: any;
 
   ngOnInit(): void {
-    this.projectListDetails()
+    this.projectListDetails();
+    localStorage.removeItem('peremployees');
   }
 
+  logoutStatus: boolean = false;
+  projectList: any = [];
+  term: string;
 
-  logoutStatus:boolean=false
-  projectList:any = [];
-  term:string
+  data: any = [
+    {
+      name: 'project',
+      status: 'yet to start',
+    },
+    {
+      name: 'project',
+      status: 'yet to start',
+    },
+    {
+      name: 'project',
+      status: 'yet to start',
+    },
+    {
+      name: 'project',
+      status: 'yet to start',
+    },
+    {
+      name: 'project',
+      status: 'yet to start',
+    },
+    {
+      name: 'project',
+      status: 'yet to start',
+    },
+    {
+      name: 'project',
+      status: 'yet to start',
+    },
+  ];
 
-  data:any=[
-    {
-      name:'project',
-      status:'yet to start'
-    },
-    {
-      name:'project',
-      status:'yet to start'
-    },
-    {
-      name:'project',
-      status:'yet to start'
-    },
-    {
-      name:'project',
-      status:'yet to start'
-    },
-    {
-      name:'project',
-      status:'yet to start'
-    },
-    {
-      name:'project',
-      status:'yet to start'
-    },
-    {
-      name:'project',
-      status:'yet to start'
-    },
-  ]
-
-
-
-  logout(){
+  logout() {
     // localStorage.removeItem()
     // alert('clicked')
     // this.loginButton=true
     // this.event.emit(this.loginButton)
-  // this.logoutStatus = false
-  // console.log("lgsts",this.logoutStatus)
+    // this.logoutStatus = false
+    // console.log("lgsts",this.logoutStatus)
     // this.router.navigate(['']);
-    this.logoutStatus=true
-    localStorage.setItem('authstatus',JSON.stringify(false))
+    this.logoutStatus = true;
+    localStorage.setItem('authstatus', JSON.stringify(false));
     this.router.navigate(['']);
   }
 
@@ -77,30 +83,56 @@ export class ProjectsComponent implements OnInit{
       height: '60%',
       width: '28%',
      
+
       // panelClass: 'full-screen-modal',
-     
     });
   }
 
-  openempDetail(data){
-    // console.log("term",this.term)
-    this.openemp=true
-    // this.show = event
-    this.perproject = data
-   console.log("data",data)
-    console.log('ts',event)
-
+  openempDetail(data) {
+    this.perproject = data;
   }
-  handlechange(){
-    this.openemp=false
-    console.log(this.openemp)
+  handlechange() {
+    this.openemp = false;
+    console.log(this.openemp);
+  }
 
+  list() {
+    if (this.projectList.length > 0) {
+      if (this.projectList[0] != null) {
+        this.perproject = this.projectList[0];
+        console.log('???', this.projectList[0]);
+      }
+    }
+  }
+
+  handleEvent(details) {
+    this.peremployee = details;
+    console.log('details', details);
+    localStorage.setItem('peremployees', JSON.stringify(this.peremployee));
+    this.router.navigate(['/employee']);
   }
 
   projectListDetails() {
     this.service.getProjectListApi().subscribe((response) => {
       this.projectList = response;
-      console.log("ppp",response);
+      console.log('ppp', response);
+      if (this.projectList) {
+        this.list();
+      }
+    });
+  }
+
+  projectStatus(body) {
+    this.service.addProjectStatusApi(body).subscribe((response) => {
+      this.status = response;
+      this.service.getProjectListApi().subscribe((response) => {
+        this.projectList = response;
+        this.projectList.map((ele) => {
+          if (ele.id === this.perproject.id) {
+            this.perproject = ele;
+          }
+        });
+      });
     });
   }
 }

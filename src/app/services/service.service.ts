@@ -55,4 +55,23 @@ export class ServiceService {
        }
      })
    }
+
+
+  addProjectStatusApi(data){
+    let body
+    if(data?.status === 'New'){
+      body={
+        status : 'In Progress'
+      }
+    }else {
+      body={
+        status : 'Closed'
+      }
+    }
+    return this.http.put(`https://pmt-service.onrender.com/api/projects/${data?.id}/update_status`,body,{
+      headers:{
+        'x-api-key':'secrt-dev-1505'
+      }
+    })
+  }
 }

@@ -82,7 +82,7 @@ color: #000000;
     border: none;
 }
 .searchinput{
-  width: 340px;
+  width: 380px;
     box-sizing: border-box;
     height: 48px;
     background: #FFFFFF;
@@ -110,9 +110,6 @@ color: #CDBEBE;
   /* font-size: 20px; */
 }
 .list-container{
-    /* border: solid #5E66AD; */
-
-  
 
     min-height: fit-content;
     max-height: 209px;
@@ -127,14 +124,14 @@ color: #CDBEBE;
 .lists{
      /* box-sizing: border-box; */
      display: flex;
-    width: 320px;
+    width: 360px;
     height: 50px;
     border: 1px solid #5E66AD;
     /* padding-top: 14px; */
     padding-left: 18px;
     align-items: center;
-    justify-content: space-between;
-    gap: 8px;
+    /* justify-content: space-between; */
+  gap: 8px;
 
    
 }
@@ -159,6 +156,7 @@ color: #CDBEBE;
       line-height: 15px;
       color: #000000;
       width: 50%;
+      /* border: solid red; */
      /* padding-left: 85px; */
   
   }
@@ -169,7 +167,7 @@ display: inline-block;
 font-style: normal;
 font-weight: 700;
 font-size: 26px;
-line-height: 15px;
+/* line-height: 15px; */
 padding-top: 45px;
 padding-left: 25px;
 /* identical to box height */
@@ -177,6 +175,12 @@ padding-left: 25px;
 
 color: #000000;
 
+}
+.status{
+  margin: none;
+  padding: none;
+  /* border: solid blue; */
+  display: inline-block;
 }
 .description{
     /* width: 65px;
@@ -219,4 +223,9 @@ color: #000000;
 }
 .link{
     text-decoration: none;
+    color: #196FF0;
+}
+.link-none{
+  text-decoration: none;
+
 }

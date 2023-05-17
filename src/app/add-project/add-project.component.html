@@ -1,86 +1,69 @@
-
 <div class="main-container">
-    
-    <div class="header-container">
+  <div class="header-container">
+    <span class="dialog-header">New Project</span>
+    <mat-icon
+      aria-hidden="false"
+      aria-label=" home "
+      fontIcon="close"
+      mat-dialog-close
+      class="icon"
+    ></mat-icon>
+  </div>
 
-        <span class="dialog-header">New Project</span>
-        <mat-icon aria-hidden="false" aria-label=" home " fontIcon="close" mat-dialog-close class="icon" ></mat-icon>
-    </div>
+  <div class="MainDiv">
+    <form [formGroup]="addProjForm" (ngSubmit)="onSubmit()" class="form-div">
+      <label for="name" class="name">Name </label>
+      <input id="name" type="text" formControlName="name" class="input" />
 
-    <div class="MainDiv">
-        <form [formGroup]="addProjForm" (ngSubmit)="onSubmit()" class="form-div">
-    
-          <label for="name" class="name">Name </label>
-          <input
-          id="name"
-          type="text"
-          formControlName="name"
-          class="input"
-        />
+      <label for="technologies" class="technologies">Technologies </label>
+      <input
+        id="technologies"
+        type="text"
+        formControlName="technologies"
+        class="input"
+      />
 
-          <label for="technologies" class="technologies">Technologies </label>
-          <input
-          id="technologies"
-          type="text"
-          formControlName="technologies"
-          class="input"
-        />
+      <label for="startDate" class="joiningdate">Start date </label>
+      <input
+        id="startDate"
+        type="date"
+        formControlName="startDate"
+        class="input"
+      />
 
-       
-
-          <label for="startDate" class="joiningdate">Start date </label>
-          <input
-            id="startDate"
-            type="date"
-            formControlName="startDate"
-            class="input"
-          />
-
-          <!-- <label for="employee" class="technologies">Employees </label>
+      <!-- <label for="employee" class="technologies">Employees </label>
           <select id="employee" formControlName="employees" class="input1">
             <option *ngFor = "let opt of employees" [value]="opt.id">{{opt.name}}</option>
           </select> -->
-          <label for="employee" class="technologies">Employees </label>
-          <div style="border: none;">
-
-            <ng-multiselect-dropdown
-        
+      <label for="employee" class="technologies">Employees </label>
+      <div class="" style="border: none">
+        <ng-multiselect-dropdown
           [settings]="dropdownSettings"
           [data]="employeeList"
           optionLabel="name"
           optionValue="id"
           formControlName="employees"
-      (onSelect)="onItemSelect($event)"
-      (onDeSelect)="onItemDeSelect($event)">
-      </ng-multiselect-dropdown>
-          </div>
+          (onSelect)="onItemSelect($event)"
+          (onDeSelect)="onItemDeSelect($event)"
+        >
+        </ng-multiselect-dropdown>
+      </div>
 
-        
-        <div class="btn-container">
-
-          <div class="submit-button">
-            <button
-              
-              class="cancelbtn"
-              mat-dialog-close
-            >
-              Cancel
-            </button>
-          </div>
-          <div class="submit-button">
-            <button
-              class="submitBtn"
-              [disabled]="!addProjForm.valid"
-              type="submit"
-              mat-dialog-close
-             
-            >
-              Save
-            </button>
-          </div>
-
+      <div class="btn-container">
+        <div class="submit-button">
+          <button class="cancelbtn" mat-dialog-close>Cancel</button>
         </div>
-        </form>
-    </div>
-
+        <div class="submit-button">
+          <button
+            class="submitBtn"
+            [disabled]="!addProjForm.valid"
+            type="submit"
+            mat-dialog-close
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
