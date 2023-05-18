@@ -38,6 +38,8 @@ export class AddemployeeComponent implements OnInit {
     if (this.addForm.valid) {
       this.service.addEmployee(this.addForm.value).subscribe((response) => {
         console.log(response);
+        window.location.reload();
+
       });
     }
   }

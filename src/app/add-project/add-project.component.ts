@@ -23,20 +23,7 @@ export class AddProjectComponent {
   dropdownList = [];
   selectedItems = [];
   dropdownSettings: IDropdownSettings = {};
-  employees = [
-    {
-      id: 1,
-      name: 'employee1',
-    },
-    {
-      id: 2,
-      name: 'employee2',
-    },
-    {
-      id: 3,
-      name: 'employee2',
-    },
-  ];
+
   constructor(private fb: FormBuilder, private service: ServiceService) {}
   ngOnInit(): void {
     this.employeeListDetails();
@@ -65,6 +52,7 @@ export class AddProjectComponent {
 
     this.service.addProject(body).subscribe((response) => {
       console.log(response);
+      window.location.reload();
     });
   }
 
@@ -82,4 +70,7 @@ export class AddProjectComponent {
       this.employeeList = response;
     });
   }
+
+
+
 }
