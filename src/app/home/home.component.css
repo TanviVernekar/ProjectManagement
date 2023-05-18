@@ -2,9 +2,7 @@
   height: 55px;
   display: flex;
   flex-direction: row;
-
   background: #5e66ad;
-
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -17,18 +15,15 @@
 .header-name {
   width: 151px;
   height: 16px;
-
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 15px;
-
   color: #ffffff;
 }
 
 .container {
   height: 90vh;
-
   width: 100vw;
   margin: auto 0;
 }
@@ -51,18 +46,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
   height: calc(100vh - 55px);
   justify-content: center;
 }
 .descriptionContainer {
   display: flex;
   flex-direction: column;
-
   height: 71px;
   width: 241px;
   text-align: center;
-
   margin: 0 auto;
 }
 .short-name {
@@ -70,7 +62,6 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
-
   color: #5e66ad;
   padding-bottom: 15px;
 }
@@ -79,7 +70,6 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
-
   color: #5e66ad;
   padding-bottom: 15px;
 }
@@ -87,26 +77,23 @@
   display: flex;
   flex-direction: column;
   border: 1px solid #5e66ad;
-
   width: fit-content;
-  height: 22vh;
-
+  max-height: 22vh;
+  min-height: fit-content;
   border-radius: 8px;
 }
 .form-div {
   display: flex;
   flex-direction: column;
-  margin: 25px 15px 15px 15px;
+  margin: 25px 0px 0px 35px;
 }
 .email {
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 15px;
-
+  margin-right: 35px;
   margin-bottom: 15px;
-  margin-left: 20px;
-
   color: #000000;
 }
 .password {
@@ -114,9 +101,8 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 15px;
-
+  margin-right: 35px;
   margin: 15px 0;
-  margin-left: 20px;
   color: #000000;
 }
 .input {
@@ -124,10 +110,9 @@
   height: 32px;
   left: 161px;
   top: 262px;
-
+  margin-right: 35px;
   border: 1px solid #000000;
   margin-bottom: 20px;
-  margin-left: 20px;
   font-size: 16px;
   padding-left: 10px;
 }
@@ -136,33 +121,29 @@
   background-color: #dbdef7;
 }
 .error {
-  margin-top: 28px;
+  margin-top: 20px;
   color: red;
+  margin-left: 10px;
   font-size: 14px;
   height: 20px;
 }
 .submit-button {
-  margin-top: 18px;
+  margin-top: 0px;
   margin-left: 20px;
 }
 .submitBtn {
   background-color: #9ba3ed;
-
   width: 200px;
   height: 40px;
-
   align-self: flex-end;
-
   float: right;
   border-radius: 6px;
   outline: none;
   border: none;
-
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 15px;
-
   color: #000000;
 }
 .errormsg {
@@ -170,5 +151,5 @@
   font-size: 12px;
   margin-top: -18px;
   width: 20vw;
-  margin-left: 22px;
+  margin-left: 10px;
 }
