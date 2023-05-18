@@ -40,7 +40,7 @@ export class EmployeeComponent implements OnInit {
     this.logoutStatus = true;
 
     localStorage.setItem('authstatus', JSON.stringify(false));
-
+     localStorage.removeItem('peremployees')
     this.router.navigate(['']);
   }
 

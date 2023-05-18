@@ -76,8 +76,8 @@ export class HomeComponent implements OnInit {
             'Your Session Expired due to longer Inactivity, Login Again To Continue'
           );
         }, 1000);
-        console.log('diff', diff);
-
+     
+        localStorage.removeItem('peremployees')
         this.router.navigate(['']);
       }
     });
