@@ -25,7 +25,7 @@
       placeholder="Search"
       class="searchinput"
       [(ngModel)]="filterstring"
-      (change)="handlechange()"
+     
       />
       <!-- (input)="" -->
       <div class="list-container" >
@@ -61,9 +61,18 @@
       >
       <span class="activeprojects"> Active projects: </span>&nbsp;
       <span>
-      <span *ngFor="let emp of employeeslt" class="description"
-        >&nbsp;{{emp}}
-      </span>
+        <div *ngIf="employeeslt.length > 0">
+
+          <span *ngFor="let emp of employeeslt" class="description"
+            >&nbsp;{{emp}}
+          </span>
+        </div>
+        <div *ngIf="employeeslt.length === 0">
+
+          <span class="description"
+            >&nbsp;None
+          </span>
+        </div>
       </span>
   </span
     >

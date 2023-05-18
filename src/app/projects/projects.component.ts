@@ -100,7 +100,7 @@ export class ProjectsComponent implements OnInit {
     if (this.projectList.length > 0) {
       if (this.projectList[0] != null) {
         this.perproject = this.projectList[0];
-        console.log('???', this.projectList[0]);
+  
       }
     }
   }
@@ -115,7 +115,6 @@ export class ProjectsComponent implements OnInit {
   projectListDetails() {
     this.service.getProjectListApi().subscribe((response) => {
       this.projectList = response;
-      console.log('ppp', response);
       if (this.projectList) {
         this.list();
       }

@@ -1,7 +1,7 @@
 .main-container{
     /* padding:30px; */
     /* height: 95%; */
-    border: solid red;
+    
     height: fit-content;
     padding-top: 30px;
     overflow-y: scroll;
@@ -125,7 +125,7 @@
      display: flex;
      flex-direction: row;
      justify-content: space-between;
-     margin: 55px 0px 0px 55px;
+     margin: 25px 0px 0px 35px;
   height: 20%;
      width: 70%;
      /* border: solid yellow; */
@@ -177,30 +177,38 @@
 
  ::ng-deep .multiselect-dropdown {
     display: inline-block;
-    /* border: 2px solid red; */
-    width: 70% !important;
+    border: 1.5px solid black;
+    width: 71% !important;
     padding-right: 25px;
     margin-bottom: 0;
     font-size: 12px;
     font-weight: 400;
     line-height: 1.1;
     text-align: left;
-
+  margin-top: 5px !important;
     cursor: pointer;
 
     border-radius: 4px;
 }
 
-::ng-deep .multiselect-dropdown .dropdown-list[_ngcontent-fju-c21] {
+/* ::ng-deep .multiselect-dropdown .dropdown-list[_ngcontent-fju-c21] {
   position: none;
   padding-top: 6px;
   width: 100%;
-  /* z-index: 9999; */
-  /* border: 1px solid #ccc; */
+  z-index: 9999; 
+   border: 1px solid #ccc;
   border-radius: 3px;
   background: #fff;
   margin-top: 10px;
   box-shadow: 0 1px 5px #959595;
-}
+} */
+.error{
 
+  height: 20px;
+  margin-top: 10px;
+ }
+ .errortext{
+  font-size: 16px;
+  color: red;
+ }
 

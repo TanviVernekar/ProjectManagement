@@ -13,6 +13,8 @@ export class AddProjectComponent {
   employeeList:any=[]
   selectedId: any = [];
 
+  submitted:boolean=false
+
   dropdownList = [];
   selectedItems = [];
   dropdownSettings: IDropdownSettings = {};
@@ -52,7 +54,7 @@ export class AddProjectComponent {
   }
 
   onSubmit() {
-
+    this.submitted=true
     const body = {
       ...this.addProjForm.value,
       employees:this.selectedId

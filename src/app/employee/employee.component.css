@@ -115,6 +115,8 @@ color: #CDBEBE;
         margin: 10px 0 0 35px;
         overflow-y: auto;
         width: fit-content;
+        align-items: center;
+        justify-content: center;
         
 }
 ::-webkit-scrollbar{
@@ -123,9 +125,9 @@ color: #CDBEBE;
 .lists{
      /* box-sizing: border-box; */
     width: 380px;
-    height: 40px;
+    height: 36px;
     border: 1px solid #5E66AD;
-    padding-top: 14px;
+    padding-top: 18px;
     /* border: solid green; */
    
 }
@@ -136,6 +138,7 @@ color: #CDBEBE;
     line-height: 15px;
     color: #000000;
    padding-left: 25px;
+   /* align-self: center; */
 
 }
 

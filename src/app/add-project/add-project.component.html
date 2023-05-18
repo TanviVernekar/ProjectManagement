@@ -48,17 +48,25 @@
         >
         </ng-multiselect-dropdown>
       </div>
-
+      <div  class="error">
+        <span class="errortext" *ngIf="!addProjForm.valid && submitted === true">Please enter the details!</span>
+      </div>
       <div class="btn-container">
         <div class="submit-button">
           <button class="cancelbtn" mat-dialog-close>Cancel</button>
         </div>
-        <div class="submit-button">
+        <div class="submit-button" *ngIf="!addProjForm.valid">
           <button
             class="submitBtn"
-            [disabled]="!addProjForm.valid"
+          >
+            Save
+          </button>
+        </div>
+        <div class="submit-button" *ngIf="addProjForm.valid">
+          <button
+            class="submitBtn"
             type="submit"
-            mat-dialog-close
+              mat-dialog-close 
           >
             Save
           </button>

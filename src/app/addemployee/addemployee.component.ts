@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ServiceService } from '../services/service.service';
 
 @Component({
@@ -21,10 +21,10 @@ export class AddemployeeComponent implements OnInit{
     this.designationList()
 
     this.addForm = this.fb.group({
-      'name': new FormControl(''),
-      'designationId': new FormControl(),
-      'joiningDate': new FormControl(''),
-      'technologies': new FormControl(''), 
+      'name': new FormControl('',Validators.required),
+      'designationId': new FormControl(Validators.required),
+      'joiningDate': new FormControl('',Validators.required),
+      'technologies': new FormControl('',Validators.required), 
     });
   }
 
@@ -35,9 +35,9 @@ export class AddemployeeComponent implements OnInit{
     console.log("I am clicked  ")
     this.submitted=true
     if(this.addForm.valid){
-      //     this.service.addEmployee(this.addForm.value).subscribe((response)=>{
-// console.log(response)
-//     })
+          this.service.addEmployee(this.addForm.value).subscribe((response)=>{
+console.log(response)
+    })
     }
     
 

@@ -156,16 +156,17 @@
   background-color: #DBDEF7;
 }
 .error{
-  /* border: solid red; */
-  margin-top: 15px;
+  margin-top: 28px;
   color: red;
   font-size: 14px;
+  height: 20px;
 }
 .submit-button{
     /* border: solid green; */
     /* height: fit-content; */
     
-    margin-top: 40px;
+    margin-top: 18px;
+    margin-left: 20px;
   
 }
 .submitBtn {

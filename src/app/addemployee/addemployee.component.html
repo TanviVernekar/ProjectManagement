@@ -40,8 +40,8 @@
             formControlName="technologies"
             class="input1"
           />
-          <div *ngIf="!addForm.valid && submitted === true">
-            <span> Enter the details!</span>
+          <div  class="error">
+            <span class="errortext" *ngIf="!addForm.valid && submitted === true">Please enter the details!</span>
           </div>
         <div class="btn-container">
 
@@ -54,22 +54,18 @@
               Cancel
             </button>
           </div>
-          <div class="submit-button" *ngIf="addForm.valid">
+          <div class="submit-button" *ngIf="!addForm.valid">
             <button
               class="submitBtn"
-              
-              type="submit"
-              mat-dialog-close 
             >
               Save
             </button>
           </div>
-          <div class="submit-button" *ngIf="!addForm.valid">
+          <div class="submit-button" *ngIf="addForm.valid">
             <button
               class="submitBtn"
-              
               type="submit"
-          
+                mat-dialog-close 
             >
               Save
             </button>

@@ -63,8 +63,8 @@
                     email is required.
                   </div> -->
           </div>
-          <div class="error" *ngIf="!loginForm.valid && submitted === true">
-            <span> Enter the credentials</span>
+          <div class="error" >
+            <span *ngIf="!loginForm.valid && submitted === true" >Please enter the credentials</span>
           </div>
           <div class="submit-button">
            

@@ -182,7 +182,7 @@ export class HomeComponent implements OnInit {
             m.password !== this.loginForm.value.password
         ))
       ) {
-        alert('please enter valid password');
+        alert('Password is incorrect!');
       } else {
         this.signupusers.push(this.loginForm.value);
         console.log('array', this.signupusers);

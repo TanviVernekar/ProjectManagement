@@ -112,7 +112,7 @@ color: #CDBEBE;
 .list-container{
 
     min-height: fit-content;
-    max-height: 209px;
+    max-height: 225px;
         margin: 10px 0 0 35px;
         overflow-y: auto;
         width: fit-content;
@@ -125,7 +125,7 @@ color: #CDBEBE;
      /* box-sizing: border-box; */
      display: flex;
     width: 360px;
-    height: 50px;
+    height: 54px;
     border: 1px solid #5E66AD;
     /* padding-top: 14px; */
     padding-left: 18px;
