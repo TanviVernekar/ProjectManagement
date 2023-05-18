@@ -1,78 +1,63 @@
-
 <div class="main-container">
-    
-    <div class="header-container">
+  <div class="header-container">
+    <span class="dialog-header">New employee</span>
+    <mat-icon
+      aria-hidden="false"
+      aria-label=" home "
+      fontIcon="close"
+      mat-dialog-close
+      class="icon"
+    ></mat-icon>
+  </div>
 
-        <span class="dialog-header">New employee</span>
-        <mat-icon aria-hidden="false" aria-label=" home " fontIcon="close" mat-dialog-close class="icon" ></mat-icon>
-    </div>
+  <div class="MainDiv">
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-div">
+      <label for="name" class="name">Name </label>
+      <input id="name" type="text" formControlName="name" class="input" />
 
-    <div class="MainDiv">
-        <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-div">
-    
-          <label for="name" class="name">Name </label>
-          <input
-          id="name"
-          type="text"
-          formControlName="name"
-          class="input"
-        />
-  
-        <label for="designationId" class="designation">Designation </label>
-        <select id="designationId" formControlName="designationId" class="input" style="width:62%;height: 40px;">
-          <!-- <option [ngValue]="null" disabled>Select designation</option> -->
-          <option *ngFor = "let opt of designation" [value]="opt.id">{{opt.name}}</option>
-        </select>
-  
+      <label for="designationId" class="designation">Designation </label>
+      <select
+        id="designationId"
+        formControlName="designationId"
+        class="input"
+        style="width: 62%; height: 40px"
+      >
+        <option *ngFor="let opt of designation" [value]="opt.id">
+          {{ opt.name }}
+        </option>
+      </select>
 
-          <label for="joiningDate" class="joiningdate">Joining date </label>
-          <input
-            id="joiningDate"
-            type="date"
-            formControlName="joiningDate"
-            class="input"
-          />
+      <label for="joiningDate" class="joiningdate">Joining date </label>
+      <input
+        id="joiningDate"
+        type="date"
+        formControlName="joiningDate"
+        class="input"
+      />
 
-          <label for="technologies" class="technologies">Technologies </label>
-          <input
-            id="technologies"
-            type="text"
-            formControlName="technologies"
-            class="input1"
-          />
-          <div  class="error">
-            <span class="errortext" *ngIf="!addForm.valid && submitted === true">Please enter the details!</span>
-          </div>
-        <div class="btn-container">
-
-          <div class="submit-button">
-            <button
-              
-              class="cancelbtn"
-              mat-dialog-close
-            >
-              Cancel
-            </button>
-          </div>
-          <div class="submit-button" *ngIf="!addForm.valid">
-            <button
-              class="submitBtn"
-            >
-              Save
-            </button>
-          </div>
-          <div class="submit-button" *ngIf="addForm.valid">
-            <button
-              class="submitBtn"
-              type="submit"
-                mat-dialog-close 
-            >
-              Save
-            </button>
-          </div>
-
+      <label for="technologies" class="technologies">Technologies </label>
+      <input
+        id="technologies"
+        type="text"
+        formControlName="technologies"
+        class="input1"
+      />
+      <div class="error">
+        <span class="errortext" *ngIf="!addForm.valid && submitted === true"
+          >Please enter the details!</span
+        >
+      </div>
+      <div class="btn-container">
+        <div class="submit-button">
+          <button class="cancelbtn" mat-dialog-close>Cancel</button>
         </div>
-        </form>
-    </div>
-
+        <div class="submit-button" *ngIf="!addForm.valid">
+          <button class="submitBtn">Save</button>
+        </div>
+        <div class="submit-button" *ngIf="addForm.valid">
+          <button class="submitBtn" type="submit" mat-dialog-close>Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

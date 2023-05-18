@@ -10,7 +10,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./employee.component.css'],
 })
 export class EmployeeComponent implements OnInit {
-  // loginButton:boolean=true
   openemp: boolean = false;
 
   logoutStatus: boolean = false;
@@ -25,17 +24,12 @@ export class EmployeeComponent implements OnInit {
 
   localemployee: any;
 
-
-
-
   constructor(
     public dialog: MatDialog,
     private service: ServiceService,
     private router: Router,
     private route: ActivatedRoute
-  ) {
-    // this.routerdata=this.route?.snapshot.paramMap.get('name')
-  }
+  ) {}
 
   ngOnInit(): void {
     this.projectListDetails();
@@ -43,17 +37,8 @@ export class EmployeeComponent implements OnInit {
   }
 
   logout() {
-    // localStorage.removeItem()
-    // alert('clicked')
-    // this.loginButton=true
-    // this.event.emit(this.loginButton)
-    // this.logoutStatus = false
-    // console.log("lgsts",this.logoutStatus)
-    // this.router.navigate(['']);
     this.logoutStatus = true;
-    // localStorage.removeItem('signupusers')
-    // console.log(loginForm.value)
-    // localStorage.removeItem('authstatus')
+
     localStorage.setItem('authstatus', JSON.stringify(false));
 
     this.router.navigate(['']);
@@ -62,10 +47,8 @@ export class EmployeeComponent implements OnInit {
   navigate() {
     if (localStorage.getItem('peremployees')) {
       this.peremployee = JSON.parse(localStorage.getItem('peremployees'));
-      // console.log('///', this.peremployee);
     } else {
       this.peremployee = this.employeeList[0];
-      // console.log('+++', this.peremployee);
     }
 
     this.employeeslt = [];
@@ -77,16 +60,12 @@ export class EmployeeComponent implements OnInit {
         }
       }
     }
-    // this.peremployee=this.employeeList[0]
-    //   console.log("+++",this.peremployee)
   }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddemployeeComponent, {
       height: '60%',
       width: '28%',
-
-      // panelClass: 'full-screen-modal',
     });
   }
 
@@ -111,7 +90,6 @@ export class EmployeeComponent implements OnInit {
     if (this.employeeList.length > 0) {
       if (this.employeeList[0] != null) {
         this.peremployee = this.employeeList[0];
-        // console.log('???', this.employeeList[0]);
       }
     }
   }
@@ -119,19 +97,14 @@ export class EmployeeComponent implements OnInit {
   employeeListDetails() {
     this.service.getEmpListApi().subscribe((response) => {
       this.employeeList = response;
-    
+        this.navigate();
     });
   }
 
   projectListDetails() {
     this.service.getProjectListApi().subscribe((response) => {
       this.projectList = response;
-      if(this.projectList){
-        if (this.employeeList) {
           this.navigate();
-        }
-      }
-
     });
   }
 }

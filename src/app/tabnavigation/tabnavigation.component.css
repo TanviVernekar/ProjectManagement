@@ -1,78 +1,56 @@
 .container {
-  /* border: solid yellow; */
   height: 105px;
   width: 100%;
-  /* display: flex; */
 }
 .inner-container {
   display: flex;
   flex-direction: row;
-  /* margin-top: 46px; */
-
-  /* justify-content: space-between; */
-  /* padding: 0; */
-  /* border: solid green; */
-  /* height: 37px; */
-  /* width: 100vw; */
   list-style-type: none;
   height: 45px;
-  /* align-items: center; */
 }
 .empcontainer {
-  /* border: solid blue; */
   width: 50vw;
   text-align: center;
   justify-content: center;
   align-items: center;
-  /* border-right: solid #5e66ad; */
   height: 45px;
-  /* border: solid green; */
-  /* background-color: #DBDEF7; */
-  background-color: #9BA3ED;
+  background-color: #9ba3ed;
   display: flex;
 }
 
 .projcontainer {
-  /* border: solid blue; */
   height: 45px;
-display: flex;
+  display: flex;
   width: 50vw;
   text-align: center;
   justify-content: center;
   align-items: center;
-  background-color: #9BA3ED;
+  background-color: #9ba3ed;
 }
 .active {
-  /* width: 25vw; */
-  background-color: #DBDEF7
-  /* background-color: aqua; */
-  /* border-bottom: 2px solid #ffd639; */
+  background-color: #dbdef7;
 }
 .emplink {
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    text-align: center;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    color: black;
-    font-size: 22px;
-    font-weight: 700;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  color: black;
+  font-size: 22px;
+  font-weight: 700;
 }
 .projlink {
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    text-align: center;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    color: black;
-    font-size: 22px;
-    font-weight: 700;
-
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  color: black;
+  font-size: 22px;
+  font-weight: 700;
 }
-
-
-

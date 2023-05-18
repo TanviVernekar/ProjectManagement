@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ServiceService } from '../services/service.service';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 @Component({
@@ -10,10 +15,10 @@ import { IDropdownSettings } from 'ng-multiselect-dropdown';
 export class AddProjectComponent {
   addProjForm!: FormGroup;
 
-  employeeList:any=[]
+  employeeList: any = [];
   selectedId: any = [];
 
-  submitted:boolean=false
+  submitted: boolean = false;
 
   dropdownList = [];
   selectedItems = [];
@@ -34,17 +39,15 @@ export class AddProjectComponent {
   ];
   constructor(private fb: FormBuilder, private service: ServiceService) {}
   ngOnInit(): void {
-
-    this.employeeListDetails()
-
+    this.employeeListDetails();
 
     this.addProjForm = this.fb.group({
-      name: new FormControl('',Validators.required),
-      technologies: new FormControl('',Validators.required),
-      startDate: new FormControl('',Validators.required),
-      employees: new FormControl('',Validators.required),
+      name: new FormControl('', Validators.required),
+      technologies: new FormControl('', Validators.required),
+      startDate: new FormControl('', Validators.required),
+      employees: new FormControl('', Validators.required),
     });
-    
+
     this.dropdownSettings = {
       idField: 'id',
       textField: 'name',
@@ -54,36 +57,29 @@ export class AddProjectComponent {
   }
 
   onSubmit() {
-    this.submitted=true
+    this.submitted = true;
     const body = {
       ...this.addProjForm.value,
-      employees:this.selectedId
-    }
-  console.log("body",body);
-  
-    this.service.addProject(body).subscribe((response)=>{
-      console.log(response)
-          })
+      employees: this.selectedId,
+    };
+
+    this.service.addProject(body).subscribe((response) => {
+      console.log(response);
+    });
   }
 
-
   onItemSelect(item: any) {
-    console.log('onItemSelect', item.id);
     this.selectedId.push(item.id);
-    console.log(this.selectedId);
   }
   onItemDeSelect(item: any) {
     const index = this.selectedId.indexOf(item.id);
-    console.log("index",index)
-  const element = this.selectedId.splice(index,1);
-  console.log(this.selectedId)
-  }
 
+    const element = this.selectedId.splice(index, 1);
+  }
 
   employeeListDetails() {
     this.service.getEmpListApi().subscribe((response) => {
       this.employeeList = response;
-      console.log("projresss",this.employeeList);
     });
   }
 }

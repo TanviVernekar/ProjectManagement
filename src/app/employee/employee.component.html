@@ -1,19 +1,14 @@
-
-
 <div class="header">
   <div *ngIf="logoutStatus === true" class="container1">
     <span class="header-name">RMT</span>
     <button mat-flat-button>Login</button>
   </div>
-  <div *ngIf="logoutStatus === false" class="container1" >
+  <div *ngIf="logoutStatus === false" class="container1">
     <span class="header-name">RMT</span>
     <button (click)="logout()" mat-flat-button>LogOut</button>
   </div>
-
-  
 </div>
 <app-tabnavigation></app-tabnavigation>
-
 
 <div class="main-container">
   <div class="left-container">
@@ -25,57 +20,60 @@
       placeholder="Search"
       class="searchinput"
       [(ngModel)]="filterstring"
-     
-      />
-      <!-- (input)="" -->
-      <div class="list-container" >
-      <div [ngStyle]="{'background-color':list?.name === peremployee?.name  ? '#DBDEF7' :'transparent' }"
-          class="lists"
-        *ngFor="let list of employeeList | filterpipe:filterstring"
+    />
+
+    <div class="list-container">
+      <div
+        [ngStyle]="{
+          'background-color':
+            list?.name === peremployee?.name ? '#DBDEF7' : 'transparent'
+        }"
+        class="lists"
+        *ngFor="let list of employeeList | filterpipe : filterstring"
         (click)="openempDetail(list)"
       >
-        <span class="peremployee">{{list?.name}}</span>
+        <span class="peremployee">{{ list?.name }}</span>
       </div>
     </div>
   </div>
 
-  
-  <div class="right-container" >
-    <span class="title">Name:<span class="description"> &nbsp; {{peremployee?.name}} </span></span>
-    <br />
+  <div class="right-container">
     <span class="title"
-      >Designation:<span class="description"> &nbsp; {{peremployee?.designation}}</span></span
+      >Name:<span class="description">
+        &nbsp; {{ peremployee?.name }}
+      </span></span
     >
     <br />
     <span class="title"
-      >Joining date:<span class="description">&nbsp; {{peremployee?.joiningDate}}</span></span
+      >Designation:<span class="description">
+        &nbsp; {{ peremployee?.designation }}</span
+      ></span
+    >
+    <br />
+    <span class="title"
+      >Joining date:<span class="description"
+        >&nbsp; {{ peremployee?.joiningDate }}</span
+      ></span
     >
     <br />
     <span class="title">
       Tecnologies:<span class="description"
-        >&nbsp; {{peremployee?.technologies}}</span
+        >&nbsp; {{ peremployee?.technologies }}</span
       ></span
     >
     <br />
-    <span class="title-activeprojects"
-      >
+    <span class="title-activeprojects">
       <span class="activeprojects"> Active projects: </span>&nbsp;
       <span>
         <div *ngIf="employeeslt.length > 0">
-
           <span *ngFor="let emp of employeeslt" class="description"
-            >&nbsp;{{emp}}
+            >&nbsp;{{ emp }}
           </span>
         </div>
         <div *ngIf="employeeslt.length === 0">
-
-          <span class="description"
-            >&nbsp;None
-          </span>
+          <span class="description">&nbsp;None </span>
         </div>
       </span>
-  </span
-    >
+    </span>
   </div>
-  <!-- </div> -->
 </div>

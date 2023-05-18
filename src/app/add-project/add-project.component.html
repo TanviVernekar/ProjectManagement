@@ -30,11 +30,6 @@
         formControlName="startDate"
         class="input"
       />
-
-      <!-- <label for="employee" class="technologies">Employees </label>
-          <select id="employee" formControlName="employees" class="input1">
-            <option *ngFor = "let opt of employees" [value]="opt.id">{{opt.name}}</option>
-          </select> -->
       <label for="employee" class="technologies">Employees </label>
       <div class="" style="border: none">
         <ng-multiselect-dropdown
@@ -48,28 +43,20 @@
         >
         </ng-multiselect-dropdown>
       </div>
-      <div  class="error">
-        <span class="errortext" *ngIf="!addProjForm.valid && submitted === true">Please enter the details!</span>
+      <div class="error">
+        <span class="errortext" *ngIf="!addProjForm.valid && submitted === true"
+          >Please enter the details!</span
+        >
       </div>
       <div class="btn-container">
         <div class="submit-button">
           <button class="cancelbtn" mat-dialog-close>Cancel</button>
         </div>
         <div class="submit-button" *ngIf="!addProjForm.valid">
-          <button
-            class="submitBtn"
-          >
-            Save
-          </button>
+          <button class="submitBtn">Save</button>
         </div>
         <div class="submit-button" *ngIf="addProjForm.valid">
-          <button
-            class="submitBtn"
-            type="submit"
-              mat-dialog-close 
-          >
-            Save
-          </button>
+          <button class="submitBtn" type="submit" mat-dialog-close>Save</button>
         </div>
       </div>
     </form>

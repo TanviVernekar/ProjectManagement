@@ -1,17 +1,14 @@
 .header {
-  /* width:100%; */
   height: 55px;
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
+
   background: #5e66ad;
-  /* align-items: center; */
+
   padding-left: 15px;
   padding-right: 15px;
-  /* border: solid red; */
 }
-.container1{
-  /* border: solid green; */
+.container1 {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -20,7 +17,7 @@
 .header-name {
   width: 151px;
   height: 16px;
-  /* font-family: 'Inter'; */
+
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -29,17 +26,12 @@
   color: #ffffff;
 }
 
-
 .container {
   height: 90vh;
-  /* border:5px solid blue; */
-  width: 100vw; 
-   margin: auto 0;
-  /* background-color: #5E66AD; */
-  /* display: flex; */
 
+  width: 100vw;
+  margin: auto 0;
 }
-
 
 ::ng-deep .mat-mdc-unelevated-button .mat-mdc-button-touch-target {
   height: 24px !important;
@@ -49,12 +41,6 @@
 }
 
 ::ng-deep .mdc-button__label {
-  /* top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: absolute; */
-  /* font-family: 'Inter'; */
   font-style: normal;
   font-weight: 700;
   font-size: 13px !important;
@@ -65,18 +51,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border: 5px solid green; */
+
   height: calc(100vh - 55px);
   justify-content: center;
 }
 .descriptionContainer {
   display: flex;
   flex-direction: column;
-  /* border: solid red; */
+
   height: 71px;
   width: 241px;
   text-align: center;
-  /* align-self: center; */
+
   margin: 0 auto;
 }
 .short-name {
@@ -84,7 +70,6 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
-  /* font-family: 'Inter'; */
 
   color: #5e66ad;
   padding-bottom: 15px;
@@ -94,7 +79,6 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
-  /* font-family: 'Inter'; */
 
   color: #5e66ad;
   padding-bottom: 15px;
@@ -102,13 +86,11 @@
 .loginMainDiv {
   display: flex;
   flex-direction: column;
-  border: 1px solid  #5E66AD;
-  
-  width:fit-content;
+  border: 1px solid #5e66ad;
+
+  width: fit-content;
   height: 22vh;
-  /* text-align: center; */
-  /* align-self: center; */
-  /* margin: 0 auto; */
+
   border-radius: 8px;
 }
 .form-div {
@@ -117,24 +99,22 @@
   margin: 25px 15px 15px 15px;
 }
 .email {
-  /* font-family: 'Inter'; */
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 15px;
-  /* identical to box height */
+
   margin-bottom: 15px;
   margin-left: 20px;
 
   color: #000000;
 }
 .password {
-  /* font-family: 'Inter'; */
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 15px;
-  /* identical to box height */
+
   margin: 15px 0;
   margin-left: 20px;
   color: #000000;
@@ -153,49 +133,42 @@
 }
 .input:focus {
   outline: none;
-  background-color: #DBDEF7;
+  background-color: #dbdef7;
 }
-.error{
+.error {
   margin-top: 28px;
   color: red;
   font-size: 14px;
   height: 20px;
 }
-.submit-button{
-    /* border: solid green; */
-    /* height: fit-content; */
-    
-    margin-top: 18px;
-    margin-left: 20px;
-  
+.submit-button {
+  margin-top: 18px;
+  margin-left: 20px;
 }
 .submitBtn {
-  background-color:  #9BA3ED;;
+  background-color: #9ba3ed;
 
   width: 200px;
   height: 40px;
-  /* margin: 60px 60px 20px 0; */
+
   align-self: flex-end;
-  /* margin-left: 80px; */
+
   float: right;
   border-radius: 6px;
   outline: none;
   border: none;
 
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 15px;
 
-
-/* font-family: 'Inter'; */
-font-style: normal;
-font-weight: 700;
-font-size: 18px;
-line-height: 15px;
-/* identical to box height */
-color: #000000;
+  color: #000000;
 }
-.errormsg{
-    color: red;
-    font-size: 12px;
-    margin-top: -18px;
-    width: 20vw;
-    margin-left: 22px;
+.errormsg {
+  color: red;
+  font-size: 12px;
+  margin-top: -18px;
+  width: 20vw;
+  margin-left: 22px;
 }

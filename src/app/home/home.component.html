@@ -1,5 +1,4 @@
 <div class="main-container">
-  <!-- <app-header (event)="receiveloginstatus($event)" ></app-header> -->
   <div class="header">
     <div class="container1">
       <span class="header-name">RMT</span>
@@ -33,9 +32,6 @@
             class="errormsg"
           >
             <span>Enter a valid email</span>
-            <!-- <div *ngIf="loginForm.errors.['required']" >
-                    email is required.
-                  </div> -->
           </div>
 
           <label for="password" class="password">Password </label>
@@ -51,7 +47,7 @@
           <div
             *ngIf="
               !loginForm.get('password').valid &&
-              (loginForm.get('password').touched)
+              loginForm.get('password').touched
             "
             class="errormsg"
           >
@@ -59,28 +55,19 @@
               >Password should be atleast 5 characters long,one number,one
               character, one capital letter and one small letter</span
             >
-            <!-- <div *ngIf="!loginForm.valid">
-                    email is required.
-                  </div> -->
           </div>
-          <div class="error" >
-            <span *ngIf="!loginForm.valid && submitted === true" >Please enter the credentials</span>
+          <div class="error">
+            <span *ngIf="!loginForm.valid && submitted === true"
+              >Please enter the credentials</span
+            >
           </div>
           <div class="submit-button">
-           
-            <button
-              class="submitBtn"
-              color="primary"
-              
-              type="submit"
-            >
+            <button class="submitBtn" color="primary" type="submit">
               SignIn or Register
             </button>
           </div>
         </form>
+      </div>
     </div>
-</div>
-<!-- <router-outlet></router-outlet> -->
-</div>
-
+  </div>
 </div>

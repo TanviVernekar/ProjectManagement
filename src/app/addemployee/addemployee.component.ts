@@ -1,52 +1,49 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ServiceService } from '../services/service.service';
 
 @Component({
   selector: 'app-addemployee',
   templateUrl: './addemployee.component.html',
-  styleUrls: ['./addemployee.component.css']
+  styleUrls: ['./addemployee.component.css'],
 })
-export class AddemployeeComponent implements OnInit{
+export class AddemployeeComponent implements OnInit {
+  addForm!: FormGroup;
 
-  addForm! : FormGroup;
+  designation: any;
+  submitted: boolean = false;
 
-
-  designation:any
-  submitted:boolean=false
-
-  constructor(private fb: FormBuilder,private service:ServiceService) { }
+  constructor(private fb: FormBuilder, private service: ServiceService) {}
   ngOnInit(): void {
-
-    this.designationList()
+    this.designationList();
 
     this.addForm = this.fb.group({
-      'name': new FormControl('',Validators.required),
-      'designationId': new FormControl(Validators.required),
-      'joiningDate': new FormControl('',Validators.required),
-      'technologies': new FormControl('',Validators.required), 
+      name: new FormControl('', Validators.required),
+      designationId: new FormControl(Validators.required),
+      joiningDate: new FormControl('', Validators.required),
+      technologies: new FormControl('', Validators.required),
     });
   }
 
-
   onSubmit() {
     console.log(this.addForm.value);
-    console.log(this.addForm.status)
-    console.log("I am clicked  ")
-    this.submitted=true
-    if(this.addForm.valid){
-          this.service.addEmployee(this.addForm.value).subscribe((response)=>{
-console.log(response)
-    })
+    console.log(this.addForm.status);
+    console.log('I am clicked  ');
+    this.submitted = true;
+    if (this.addForm.valid) {
+      this.service.addEmployee(this.addForm.value).subscribe((response) => {
+        console.log(response);
+      });
     }
-    
-
-    
   }
-  designationList(){
-    this.service.getDesignationApi().subscribe((response)=>{
-      console.log(response)
-      this.designation=response
-    })
+  designationList() {
+    this.service.getDesignationApi().subscribe((response) => {
+      this.designation = response;
+    });
   }
 }

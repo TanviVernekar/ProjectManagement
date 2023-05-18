@@ -8,8 +8,6 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ServiceService } from '../services/service.service';
-import { AutologoutService } from '../services/autologout.service';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -20,45 +18,24 @@ export class HomeComponent implements OnInit {
   isLogin = false;
   submitted: boolean = false;
 
-  // logout:boolean=false
-
-  //  authstatus:boolean = true;
   loginForm!: FormGroup;
 
   signupusers: any = [];
   isUserExist: any;
-  // loginForm = new FormGroup({
-  //   email: new FormControl(''),
-  //   password: new FormControl(''),
-  // })
-  // LoginForm = this.fb.group({
-  //   email: ['',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])],
-  //   password: [''],
-
-  // });
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private service: ServiceService,
     private ngZone: NgZone
-  ) {
-    // if(this.status){
-    //   this.isLogin=true;
-    //   console.log("loginstatus",this.isLogin)
-    // }
-    // this.lastAction(Date.now());
-    // this.check();
-    // this.initListener();
-    // this.initInterval();
-  }
+  ) {}
 
   loginstatus: boolean = true;
 
   getLastAction() {
     return localStorage.getItem('lastAction');
   }
-  // @param value
+
   lastAction(value) {
     localStorage.setItem('lastAction', JSON.stringify(value));
   }
@@ -70,14 +47,12 @@ export class HomeComponent implements OnInit {
   }
   initInterval() {
     this.ngZone.runOutsideAngular(() => {
-      // if(localStorage.getItem('lastAction')){
       setInterval(() => {
         if (localStorage.getItem('authstatus') === 'true') {
           console.log('checked', localStorage.getItem('authstatus'));
           this.check();
         }
       }, 1000);
-      // }
     });
   }
   reset() {
@@ -85,12 +60,12 @@ export class HomeComponent implements OnInit {
   }
   check() {
     const now = Date.now();
-    const timeLeft = parseInt(this.getLastAction()) + 10 * 60 * 1000;
+    const timeLeft = parseInt(this.getLastAction()) + 10 * 60 * 1000; //time is set for 10 minutes to autologout
     console.log('tl', timeLeft);
     const diff = timeLeft - now;
     console.log(diff);
     const isTimeout = diff < 0;
-    //this.isLoggedIn.subscribe(event => this.isLogin = event);
+
     this.ngZone.run(() => {
       if (isTimeout && localStorage.getItem('authstatus')) {
         // localStorage.removeItem('user_id');
@@ -108,8 +83,6 @@ export class HomeComponent implements OnInit {
     });
   }
   ngOnInit() {
-    // this.status=localStorage.getItem('authstatus')
-
     this.loginForm = this.fb.group({
       email: new FormControl('', [
         Validators.required,
@@ -133,6 +106,7 @@ export class HomeComponent implements OnInit {
   }
   login() {
     this.loginstatus = false;
+   
   }
 
   receiveloginstatus($event: boolean) {
@@ -146,14 +120,8 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit() {
-    // console.log(this.loginForm.value.password);
-
     this.submitted = true;
-    // console.log(this.loginForm.status)
 
-    // this.logout=true
-    // this.service.setLogStatus(this.logout)
-    // console.log("logout",this.logout)
     if (this.loginForm.valid) {
       let isUserExist;
       if (
@@ -165,15 +133,12 @@ export class HomeComponent implements OnInit {
       ) {
         console.log('login', this.signupusers);
         if (this.isUserExist !== null) {
-          console.log('sucess');
           this.router.navigate(['/employee']);
           localStorage.setItem('authstatus', JSON.stringify(true));
           this.getLastAction();
           this.lastAction(Date.now());
           this.initListener();
           this.initInterval();
-          // this.reset()
-          // this.check()
         }
       } else if (
         (isUserExist = this.signupusers.find(
@@ -185,8 +150,6 @@ export class HomeComponent implements OnInit {
         alert('Password is incorrect!');
       } else {
         this.signupusers.push(this.loginForm.value);
-        console.log('array', this.signupusers);
-        console.log('register');
         this.router.navigate(['/employee']);
         localStorage.setItem('signupusers', JSON.stringify(this.signupusers));
         localStorage.setItem('authstatus', JSON.stringify(true));
@@ -194,8 +157,6 @@ export class HomeComponent implements OnInit {
         this.lastAction(Date.now());
         this.initListener();
         this.initInterval();
-        // this.reset()
-        // this.check()
       }
     }
   }

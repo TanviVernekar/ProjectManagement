@@ -34,45 +34,7 @@ export class ProjectsComponent implements OnInit {
   projectList: any = [];
   term: string;
 
-  data: any = [
-    {
-      name: 'project',
-      status: 'yet to start',
-    },
-    {
-      name: 'project',
-      status: 'yet to start',
-    },
-    {
-      name: 'project',
-      status: 'yet to start',
-    },
-    {
-      name: 'project',
-      status: 'yet to start',
-    },
-    {
-      name: 'project',
-      status: 'yet to start',
-    },
-    {
-      name: 'project',
-      status: 'yet to start',
-    },
-    {
-      name: 'project',
-      status: 'yet to start',
-    },
-  ];
-
   logout() {
-    // localStorage.removeItem()
-    // alert('clicked')
-    // this.loginButton=true
-    // this.event.emit(this.loginButton)
-    // this.logoutStatus = false
-    // console.log("lgsts",this.logoutStatus)
-    // this.router.navigate(['']);
     this.logoutStatus = true;
     localStorage.setItem('authstatus', JSON.stringify(false));
     this.router.navigate(['']);
@@ -82,9 +44,6 @@ export class ProjectsComponent implements OnInit {
     const dialogRef = this.dialog.open(AddProjectComponent, {
       height: '60%',
       width: '28%',
-     
-
-      // panelClass: 'full-screen-modal',
     });
   }
 
@@ -100,14 +59,12 @@ export class ProjectsComponent implements OnInit {
     if (this.projectList.length > 0) {
       if (this.projectList[0] != null) {
         this.perproject = this.projectList[0];
-  
       }
     }
   }
 
   handleEvent(details) {
     this.peremployee = details;
-    console.log('details', details);
     localStorage.setItem('peremployees', JSON.stringify(this.peremployee));
     this.router.navigate(['/employee']);
   }

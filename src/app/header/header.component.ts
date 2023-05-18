@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit{
   loginButton:boolean=true
-  // logoutbtn:boolean=false
+
   logoutStatus:boolean
 constructor(private service:ServiceService,private router:Router){}
-// @Input() logouts:boolean
+
  @Output() event =new EventEmitter<boolean>()
   ngOnInit(): void {
     this.event.emit(this.loginButton)
@@ -29,17 +29,13 @@ constructor(private service:ServiceService,private router:Router){}
   }
 
   logout(){
-    // localStorage.removeItem()
-    // alert('clicked')
+
     this.loginButton=true
     this.event.emit(this.loginButton)
-  // this.logoutStatus = false
+  
   console.log("lgsts",this.logoutStatus)
     this.router.navigate(['']);
   }
-  // refresh() {
-  //     window.location.reload();
-      
-  // }
+ 
 
 }
