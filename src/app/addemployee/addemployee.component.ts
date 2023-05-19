@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ServiceService } from '../services/service.service';
+import { EmployeeService } from '../services/employee.service';
 
 @Component({
   selector: 'app-addemployee',
@@ -18,7 +19,7 @@ export class AddemployeeComponent implements OnInit {
   designation: any;
   submitted: boolean = false;
 
-  constructor(private fb: FormBuilder, private service: ServiceService) {}
+  constructor(private fb: FormBuilder, private service: ServiceService,private addemployeeservive:EmployeeService) {}
   ngOnInit(): void {
     this.designationList();
 
@@ -36,7 +37,7 @@ export class AddemployeeComponent implements OnInit {
     console.log('I am clicked  ');
     this.submitted = true;
     if (this.addForm.valid) {
-      this.service.addEmployee(this.addForm.value).subscribe((response) => {
+      this.addemployeeservive.addEmployee(this.addForm.value).subscribe((response) => {
         console.log(response);
         window.location.reload();
 
@@ -44,7 +45,7 @@ export class AddemployeeComponent implements OnInit {
     }
   }
   designationList() {
-    this.service.getDesignationApi().subscribe((response) => {
+    this.addemployeeservive.getDesignationApi().subscribe((response) => {
       this.designation = response;
     });
   }

@@ -7,7 +7,7 @@ export class FilterpipePipe implements PipeTransform {
   
   transform(value: any,filterstring : string) {
     console.log("filtered string",filterstring)
-    if(value.length === 0 || filterstring === ''){
+    if(value?.length === 0 || filterstring === ''){
     
       return value;
     }

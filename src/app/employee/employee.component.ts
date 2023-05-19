@@ -3,6 +3,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddemployeeComponent } from '../addemployee/addemployee.component';
 import { ServiceService } from '../services/service.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EmployeeList } from '../interface/employee';
+import { ProjectList } from '../interface/project';
+import { EmployeeService } from '../services/employee.service';
+import { ProjectService } from '../services/project.service';
 
 @Component({
   selector: 'app-employee',
@@ -18,8 +22,8 @@ export class EmployeeComponent implements OnInit {
   routerdata: any;
 
   filterstring: string = '';
-  employeeList: any = [];
-  projectList: any = [];
+  employeeList!: EmployeeList[];
+  projectList: any=[];
   peremployee: any;
 
   localemployee: any;
@@ -28,7 +32,9 @@ export class EmployeeComponent implements OnInit {
     public dialog: MatDialog,
     private service: ServiceService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private employeeservice:EmployeeService,
+    private projectservice:ProjectService
   ) {}
 
   ngOnInit(): void {
@@ -73,7 +79,7 @@ export class EmployeeComponent implements OnInit {
     this.peremployee = data;
     this.employeeslt = [];
     for (const employee of this.projectList) {
-      for (const peremp of employee?.employees) {
+      for (const peremp of employee.employees) {
         if (peremp?.id === this.peremployee?.id) {
           this.employeeslt.push(employee?.name);
         }
@@ -95,15 +101,17 @@ export class EmployeeComponent implements OnInit {
   }
 
   employeeListDetails() {
-    this.service.getEmpListApi().subscribe((response) => {
+    this.employeeservice.getEmpListApi().subscribe((response:EmployeeList[]) => {
       this.employeeList = response;
+    
         this.navigate();
     });
   }
 
   projectListDetails() {
-    this.service.getProjectListApi().subscribe((response) => {
+    this.projectservice.getProjectListApi().subscribe((response) => {
       this.projectList = response;
+   
           this.navigate();
     });
   }

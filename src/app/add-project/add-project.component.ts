@@ -7,6 +7,9 @@ import {
 } from '@angular/forms';
 import { ServiceService } from '../services/service.service';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { EmployeeList } from '../interface/employee';
+import { EmployeeService } from '../services/employee.service';
+import { ProjectService } from '../services/project.service';
 @Component({
   selector: 'app-add-project',
   templateUrl: './add-project.component.html',
@@ -15,7 +18,7 @@ import { IDropdownSettings } from 'ng-multiselect-dropdown';
 export class AddProjectComponent {
   addProjForm!: FormGroup;
 
-  employeeList: any = [];
+  employeeList: EmployeeList[];
   selectedId: any = [];
 
   submitted: boolean = false;
@@ -24,7 +27,7 @@ export class AddProjectComponent {
   selectedItems = [];
   dropdownSettings: IDropdownSettings = {};
 
-  constructor(private fb: FormBuilder, private service: ServiceService) {}
+  constructor(private fb: FormBuilder, private service: ServiceService,private employeeservice:EmployeeService,private addprojectservice:ProjectService) {}
   ngOnInit(): void {
     this.employeeListDetails();
 
@@ -50,7 +53,7 @@ export class AddProjectComponent {
       employees: this.selectedId,
     };
 
-    this.service.addProject(body).subscribe((response) => {
+    this.addprojectservice.addProject(body).subscribe((response) => {
       console.log(response);
       window.location.reload();
     });
@@ -66,7 +69,7 @@ export class AddProjectComponent {
   }
 
   employeeListDetails() {
-    this.service.getEmpListApi().subscribe((response) => {
+    this.employeeservice.getEmpListApi().subscribe((response:EmployeeList[]) => {
       this.employeeList = response;
     });
   }

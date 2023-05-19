@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddProjectComponent } from '../add-project/add-project.component';
 import { ServiceService } from '../services/service.service';
 import { Router } from '@angular/router';
+import { ProjectList } from '../interface/project';
+import { ProjectService } from '../services/project.service';
 
 @Component({
   selector: 'app-projects',
@@ -13,7 +15,8 @@ export class ProjectsComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private service: ServiceService,
-    private router: Router
+    private router: Router,
+    private projectservice:ProjectService
   ) {}
 
   filterstring: string = '';
@@ -31,7 +34,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   logoutStatus: boolean = false;
-  projectList: any = [];
+  projectList!: ProjectList[];
   term: string;
 
   logout() {
@@ -70,8 +73,9 @@ export class ProjectsComponent implements OnInit {
   }
 
   projectListDetails() {
-    this.service.getProjectListApi().subscribe((response) => {
+    this.projectservice.getProjectListApi().subscribe((response:ProjectList[]) => {
       this.projectList = response;
+      console.log("?????",response)
       if (this.projectList) {
         this.list();
       }
@@ -79,9 +83,9 @@ export class ProjectsComponent implements OnInit {
   }
 
   projectStatus(body) {
-    this.service.addProjectStatusApi(body).subscribe((response) => {
+    this.projectservice.addProjectStatusApi(body).subscribe((response) => {
       this.status = response;
-      this.service.getProjectListApi().subscribe((response) => {
+      this.projectservice.getProjectListApi().subscribe((response:ProjectList[]) => {
         this.projectList = response;
         this.projectList.map((ele) => {
           if (ele.id === this.perproject.id) {

@@ -1,12 +1,14 @@
 .header {
-  height: 55px;
+  min-height: 55px;
   display: flex;
   flex-direction: row;
 
   background: #5e66ad;
-
   padding-left: 15px;
   padding-right: 15px;
+  position: sticky;
+  position:-webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; 
 }
 .container1 {
   width: 100%;

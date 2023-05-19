@@ -79,7 +79,7 @@
   border: 1px solid #5e66ad;
   width: fit-content;
   max-height: 22vh;
-  min-height: fit-content;
+  min-height:227px;
   border-radius: 8px;
 }
 .form-div {

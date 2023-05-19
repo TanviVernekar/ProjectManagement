@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 import { ServiceService } from '../services/service.service';
 @Component({
@@ -60,7 +61,7 @@ export class HomeComponent implements OnInit {
   }
   check() {
     const now = Date.now();
-    const timeLeft = parseInt(this.getLastAction()) + 10 * 60 * 1000; //time is set for 10 minutes to autologout
+    const timeLeft = parseInt(this.getLastAction()) + environment.timer ; 
     console.log('tl', timeLeft);
     const diff = timeLeft - now;
     console.log(diff);
