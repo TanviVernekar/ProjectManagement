@@ -15,17 +15,14 @@ import { ProjectService } from '../services/project.service';
 })
 export class EmployeeComponent implements OnInit {
   openemp: boolean = false;
-
   logoutStatus: boolean = false;
   employeeslt: any = [];
   empname: any = [];
   routerdata: any;
-
   filterstring: string = '';
   employeeList!: EmployeeList[];
-  projectList: any=[];
+  projectList: any = [];
   peremployee: any;
-
   localemployee: any;
 
   constructor(
@@ -33,8 +30,8 @@ export class EmployeeComponent implements OnInit {
     private service: ServiceService,
     private router: Router,
     private route: ActivatedRoute,
-    private employeeservice:EmployeeService,
-    private projectservice:ProjectService
+    private employeeservice: EmployeeService,
+    private projectservice: ProjectService
   ) {}
 
   ngOnInit(): void {
@@ -44,9 +41,8 @@ export class EmployeeComponent implements OnInit {
 
   logout() {
     this.logoutStatus = true;
-
     localStorage.setItem('authstatus', JSON.stringify(false));
-     localStorage.removeItem('peremployees')
+    localStorage.removeItem('peremployees');
     this.router.navigate(['']);
   }
 
@@ -56,9 +52,7 @@ export class EmployeeComponent implements OnInit {
     } else {
       this.peremployee = this.employeeList[0];
     }
-
     this.employeeslt = [];
-
     for (const employee of this.projectList) {
       for (const peremp of employee?.employees) {
         if (peremp?.id === this.peremployee?.id) {
@@ -89,7 +83,6 @@ export class EmployeeComponent implements OnInit {
   }
   handlechange() {
     this.openemp = false;
-    console.log(this.openemp);
   }
 
   list() {
@@ -101,18 +94,19 @@ export class EmployeeComponent implements OnInit {
   }
 
   employeeListDetails() {
-    this.employeeservice.getEmpListApi().subscribe((response:EmployeeList[]) => {
-      this.employeeList = response;
-    
-        this.navigate();
+    this.employeeservice.getEmpListApi();
+    this.employeeservice.employeeLists.subscribe((res: EmployeeList[]) => {
+      this.employeeList = res;
+
+      this.navigate();
     });
   }
 
   projectListDetails() {
-    this.projectservice.getProjectListApi().subscribe((response) => {
-      this.projectList = response;
-   
-          this.navigate();
+    this.projectservice.getProjectListApi();
+    this.projectservice.projectLists.subscribe((res: ProjectList[]) => {
+      this.projectList = res;
+      this.navigate();
     });
   }
 }

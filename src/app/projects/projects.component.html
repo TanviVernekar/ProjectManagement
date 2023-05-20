@@ -1,65 +1,57 @@
+<div class="container">
 <div class="header">
-    <div *ngIf="logoutStatus === true" class="container1">
-      <span class="header-name">RMT</span>
-      <button mat-flat-button>Login</button>
-    </div>
-    <div *ngIf="logoutStatus === false" class="container1" >
-      <span class="header-name">RMT</span>
-      <button (click)="logout()" mat-flat-button>LogOut</button>
-    </div>
-  
-    
+  <div *ngIf="logoutStatus === true" class="container1">
+    <span class="header-name">RMT</span>
+    <button mat-flat-button>Login</button>
   </div>
-  <app-tabnavigation></app-tabnavigation>
-  
+  <div *ngIf="logoutStatus === false" class="container1">
+    <span class="header-name">RMT</span>
+    <button (click)="logout()" mat-flat-button>LogOut</button>
+  </div>
+</div>
+<app-tabnavigation></app-tabnavigation>
+
 <div class="main-container">
-    <div class="left-container">
-        <span class="allempoyee">All projects</span>
-        <button class="btn" (click)=" openDialog()">Add</button>
-        <input type="text" name="search" placeholder="Search" class="searchinput" [(ngModel)]="filterstring">
-        <div class="list-container">
-            <div class="lists" [ngStyle]="{'background-color':list?.name === perproject?.name ? '#DBDEF7' :'transparent' }"
-             *ngFor="let list of projectList | filterpipe:filterstring" (click)="openempDetail(list)">
-                <span class="peremployee">{{list.name}}</span>
-                <div *ngIf="list.status === 'New'">
-                  <span class="perstatus">Yet to Start</span>
-                </div>
-                <div *ngIf="list.status === 'In Progress'">
-                  <span class="perstatus">In Progress</span>
-                </div>
-                <div *ngIf="list.status === 'Closed'">
-                  <span class="perstatus">{{list.status}}</span>
-                </div>
-            </div>
+  <div class="left-container">
+    <span class="allempoyee">All projects</span>
+    <button class="btn" (click)="openDialog()">Add</button>
+    <input
+      type="text"
+      name="search"
+      placeholder="Search"
+      class="searchinput"
+      [(ngModel)]="filterstring"
+    />
+    <div class="list-container">
+      <div
+        class="lists"
+        [ngStyle]="{
+          'background-color':
+            list?.name === perproject?.name ? '#DBDEF7' : 'transparent'
+        }"
+        *ngFor="let list of projectList | filterpipe : filterstring"
+        (click)="openempDetail(list)"
+      >
+        <span class="peremployee">{{ list.name }}</span>
+        <div *ngIf="list.status === 'New'">
+          <span class="perstatus">Yet to Start</span>
         </div>
+        <div *ngIf="list.status === 'In Progress'">
+          <span class="perstatus">In Progress</span>
+        </div>
+        <div *ngIf="list.status === 'Closed'">
+          <span class="perstatus">{{ list.status }}</span>
+        </div>
+      </div>
     </div>
-    <div class="right-container" >
-        <span class="title">Name:<span class="description"> &nbsp; {{perproject?.name}}</span></span>
-        <br>
-        <span class="title">Status:</span>
-        <div *ngIf="perproject?.status === 'New'" class="status">
-         <span class="description"> &nbsp;Yet to Start</span>
-          <button class="closebtn" (click)="projectStatus(perproject)">Start</button>
-        </div>
-        <div *ngIf="perproject?.status === 'In Progress'" class="status">
-          <span class="description"> &nbsp;In Progress</span>
-          <button class="closebtn" (click)="projectStatus(perproject)">Close</button>
-        </div>
-        <div *ngIf="perproject?.status === 'Closed'" class="status">
-         <span class="description"> &nbsp;Closed</span>
-        </div>
-        <br>
-        <span class="title">Start date:<span class="description">&nbsp; {{perproject?.startDate}}</span></span>
-        <br>
-        <span class="title"> Tecnologies:<span class="description">&nbsp; {{perproject?.technologies}}</span></span>
-            <br>
-            <div *ngIf="perproject?.employees.length > 0">
-
-                <span class="title">Developers:<span *ngFor="let emp of perproject?.employees" class="description">&nbsp;<span class="link"  (click)="handleEvent(emp)"> {{emp?.name}}</span></span></span>
-            </div>
-            <div *ngIf="perproject?.employees.length == 0">
-
-              <span class="title">Developers:<span  class="description">&nbsp;<span class="link-none"  > None</span></span></span>
-          </div>
-    </div>
+  </div>
+  <div class="right-container">
+    <app-project-details
+      [perproject]="perproject"
+      [projectList]="projectList"
+      (newItemEvent)="addItem($event)"
+      (newPerProject)="addPerProject($event)"
+    ></app-project-details>
+  </div>
+</div>
 </div>

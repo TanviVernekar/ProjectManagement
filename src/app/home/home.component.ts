@@ -50,7 +50,6 @@ export class HomeComponent implements OnInit {
     this.ngZone.runOutsideAngular(() => {
       setInterval(() => {
         if (localStorage.getItem('authstatus') === 'true') {
-          console.log('checked', localStorage.getItem('authstatus'));
           this.check();
         }
       }, 1000);
@@ -61,15 +60,14 @@ export class HomeComponent implements OnInit {
   }
   check() {
     const now = Date.now();
-    const timeLeft = parseInt(this.getLastAction()) + environment.timer ; 
-    console.log('tl', timeLeft);
+    const timeLeft = parseInt(this.getLastAction()) + environment.timer;
+
     const diff = timeLeft - now;
-    console.log(diff);
+
     const isTimeout = diff < 0;
 
     this.ngZone.run(() => {
       if (isTimeout && localStorage.getItem('authstatus')) {
-        // localStorage.removeItem('user_id');
         localStorage.removeItem('lastAction');
         localStorage.setItem('authstatus', JSON.stringify(false));
         setTimeout(() => {
@@ -77,8 +75,8 @@ export class HomeComponent implements OnInit {
             'Your Session Expired due to longer Inactivity, Login Again To Continue'
           );
         }, 1000);
-     
-        localStorage.removeItem('peremployees')
+
+        localStorage.removeItem('peremployees');
         this.router.navigate(['']);
       }
     });
@@ -100,24 +98,21 @@ export class HomeComponent implements OnInit {
     });
 
     const localdata = localStorage.getItem('signupusers');
-    console.log('local data', localdata);
+
     if (localdata != null) {
       this.signupusers = JSON.parse(localdata);
     }
   }
   login() {
     this.loginstatus = false;
-   
   }
 
   receiveloginstatus($event: boolean) {
     this.loginstatus = $event;
-    console.log('recive', this.loginstatus);
   }
 
   onchange(data: any) {
     this.submitted = false;
-    console.log(this.loginForm.value.email);
   }
 
   onSubmit() {
@@ -132,7 +127,6 @@ export class HomeComponent implements OnInit {
             m.password === this.loginForm.value.password
         ))
       ) {
-        console.log('login', this.signupusers);
         if (this.isUserExist !== null) {
           this.router.navigate(['/employee']);
           localStorage.setItem('authstatus', JSON.stringify(true));

@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterpipePipe implements PipeTransform {
   
   transform(value: any,filterstring : string) {
-    console.log("filtered string",filterstring)
+  
     if(value?.length === 0 || filterstring === ''){
     
       return value;
@@ -15,7 +15,7 @@ export class FilterpipePipe implements PipeTransform {
     for(const employee of value){
       if(employee['name'].toLowerCase().includes(filterstring.toLocaleLowerCase())){
         employees.push(employee);
-        console.log("list",employee)
+       
       }
     }
     return employees;

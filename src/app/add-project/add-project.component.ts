@@ -10,6 +10,8 @@ import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { EmployeeList } from '../interface/employee';
 import { EmployeeService } from '../services/employee.service';
 import { ProjectService } from '../services/project.service';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Inject } from '@angular/core';
 @Component({
   selector: 'app-add-project',
   templateUrl: './add-project.component.html',
@@ -17,20 +19,22 @@ import { ProjectService } from '../services/project.service';
 })
 export class AddProjectComponent {
   addProjForm!: FormGroup;
-
   employeeList: EmployeeList[];
   selectedId: any = [];
-
   submitted: boolean = false;
-
   dropdownList = [];
   selectedItems = [];
   dropdownSettings: IDropdownSettings = {};
 
-  constructor(private fb: FormBuilder, private service: ServiceService,private employeeservice:EmployeeService,private addprojectservice:ProjectService) {}
+  constructor(
+    private fb: FormBuilder,
+    private service: ServiceService,
+    private employeeservice: EmployeeService,
+    private addprojectservice: ProjectService,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
   ngOnInit(): void {
     this.employeeListDetails();
-
     this.addProjForm = this.fb.group({
       name: new FormControl('', Validators.required),
       technologies: new FormControl('', Validators.required),
@@ -52,10 +56,8 @@ export class AddProjectComponent {
       ...this.addProjForm.value,
       employees: this.selectedId,
     };
-
     this.addprojectservice.addProject(body).subscribe((response) => {
-      console.log(response);
-      window.location.reload();
+      this.data.projectListDetails();
     });
   }
 
@@ -69,11 +71,9 @@ export class AddProjectComponent {
   }
 
   employeeListDetails() {
-    this.employeeservice.getEmpListApi().subscribe((response:EmployeeList[]) => {
-      this.employeeList = response;
+    this.employeeservice.getEmpListApi();
+    this.employeeservice.employeeLists.subscribe((res) => {
+      this.employeeList = res;
     });
   }
-
-
-
 }

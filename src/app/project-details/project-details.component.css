@@ -1,0 +1,51 @@
+.title {
+    display: inline-block;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+  
+    padding-top: 45px;
+    padding-left: 25px;
+    color: #000000;
+  }
+  .status {
+    margin: none;
+    padding: none;
+  
+    display: inline-block;
+  }
+  .description {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 15px;
+  
+    padding-right: 15px;
+  
+    color: #000000;
+  }
+  .closebtn {
+    background-color: #9ba3ed;
+  
+    width: 118px;
+    height: 45px;
+    font-size: 25px;
+  
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    font-style: normal;
+    font-weight: 400;
+  
+    line-height: 15px;
+    color: #000000;
+  }
+  .link {
+    text-decoration: none;
+    color: #196ff0;
+    cursor: pointer;
+  }
+  .link-none {
+    text-decoration: none;
+  }
+  

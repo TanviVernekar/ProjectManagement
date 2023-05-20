@@ -1,3 +1,8 @@
+.container {
+  height: 100%;
+  width: 100vw;
+}
+
 .header {
   min-height: 55px;
   display: flex;
@@ -8,8 +13,8 @@
   padding-left: 15px;
   padding-right: 15px;
   position: sticky;
-  position:-webkit-sticky; /* For macOS/iOS Safari */
-  top: 0; 
+  position: -webkit-sticky;
+  top: 0;
 }
 .container1 {
   width: 100%;
@@ -20,12 +25,10 @@
 .header-name {
   width: 151px;
   height: 16px;
-
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 15px;
-
   color: #ffffff;
 }
 
@@ -57,7 +60,7 @@
 }
 .btn {
   width: 103px;
-  height: 50px;
+  min-height: 50px;
   background: #9ba3ed;
   border-radius: 5px;
   margin: 25px 0 15px 35px;
@@ -66,11 +69,12 @@
   outline: none;
   text-decoration: none;
   border: none;
+  cursor: pointer;
 }
 .searchinput {
   width: 380px;
   box-sizing: border-box;
-  height: 48px;
+  min-height: 48px;
   background: #ffffff;
   border: 2px solid #474242;
   margin: 15px 0 15px 35px;
@@ -109,7 +113,7 @@
 
   padding-left: 18px;
   align-items: center;
-
+  cursor: pointer;
   gap: 8px;
 }
 .peremployee {
@@ -178,6 +182,7 @@
 .link {
   text-decoration: none;
   color: #196ff0;
+  cursor: pointer;
 }
 .link-none {
   text-decoration: none;

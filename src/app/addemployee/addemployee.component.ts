@@ -19,7 +19,11 @@ export class AddemployeeComponent implements OnInit {
   designation: any;
   submitted: boolean = false;
 
-  constructor(private fb: FormBuilder, private service: ServiceService,private addemployeeservive:EmployeeService) {}
+  constructor(
+    private fb: FormBuilder,
+    private service: ServiceService,
+    private addemployeeservive: EmployeeService
+  ) {}
   ngOnInit(): void {
     this.designationList();
 
@@ -32,16 +36,9 @@ export class AddemployeeComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.addForm.value);
-    console.log(this.addForm.status);
-    console.log('I am clicked  ');
     this.submitted = true;
     if (this.addForm.valid) {
-      this.addemployeeservive.addEmployee(this.addForm.value).subscribe((response) => {
-        console.log(response);
-        window.location.reload();
-
-      });
+      this.addemployeeservive.addEmployee(this.addForm.value);
     }
   }
   designationList() {

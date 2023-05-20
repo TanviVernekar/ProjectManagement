@@ -5,6 +5,9 @@
   background: #5e66ad;
   padding-left: 15px;
   padding-right: 15px;
+  position: sticky;
+  position:-webkit-sticky;
+  top: 0; 
 }
 .container1 {
   width: 100%;

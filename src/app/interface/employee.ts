@@ -5,3 +5,4 @@ export interface EmployeeList {
   name?: string;
   technologies?: string;
 }
+

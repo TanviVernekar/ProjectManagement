@@ -5,6 +5,7 @@ import { ServiceService } from '../services/service.service';
 import { Router } from '@angular/router';
 import { ProjectList } from '../interface/project';
 import { ProjectService } from '../services/project.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-projects',
@@ -16,7 +17,7 @@ export class ProjectsComponent implements OnInit {
     public dialog: MatDialog,
     private service: ServiceService,
     private router: Router,
-    private projectservice:ProjectService
+    private projectservice: ProjectService
   ) {}
 
   filterstring: string = '';
@@ -27,6 +28,7 @@ export class ProjectsComponent implements OnInit {
   peremployee: any;
 
   status: any;
+  sub = new Subscription();
 
   ngOnInit(): void {
     this.projectListDetails();
@@ -45,6 +47,9 @@ export class ProjectsComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddProjectComponent, {
+      data: {
+        projectListDetails: this.projectListDetails.bind(this),
+      },
       height: '60%',
       width: '28%',
     });
@@ -55,7 +60,6 @@ export class ProjectsComponent implements OnInit {
   }
   handlechange() {
     this.openemp = false;
-    console.log(this.openemp);
   }
 
   list() {
@@ -66,33 +70,23 @@ export class ProjectsComponent implements OnInit {
     }
   }
 
-  handleEvent(details) {
-    this.peremployee = details;
-    localStorage.setItem('peremployees', JSON.stringify(this.peremployee));
-    this.router.navigate(['/employee']);
-  }
-
   projectListDetails() {
-    this.projectservice.getProjectListApi().subscribe((response:ProjectList[]) => {
-      this.projectList = response;
-      console.log("?????",response)
-      if (this.projectList) {
-        this.list();
+    this.projectservice.getProjectListApi();
+    this.sub = this.projectservice.projectLists.subscribe(
+      (res: ProjectList[]) => {
+        this.projectList = res;
+        if (this.projectList) {
+          this.list();
+        }
+        this.sub.unsubscribe();
       }
-    });
+    );
   }
 
-  projectStatus(body) {
-    this.projectservice.addProjectStatusApi(body).subscribe((response) => {
-      this.status = response;
-      this.projectservice.getProjectListApi().subscribe((response:ProjectList[]) => {
-        this.projectList = response;
-        this.projectList.map((ele) => {
-          if (ele.id === this.perproject.id) {
-            this.perproject = ele;
-          }
-        });
-      });
-    });
+  addItem(newItem: ProjectList[]) {
+    this.projectList = newItem;
+  }
+  addPerProject(newItem: any) {
+    this.perproject = newItem;
   }
 }

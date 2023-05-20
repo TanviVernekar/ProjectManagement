@@ -1,0 +1,39 @@
+<div>
+  <span class="title"
+    >Name:<span class="description">
+      &nbsp; {{ peremployee?.name }}
+    </span></span
+  >
+  <br />
+  <span class="title"
+    >Designation:<span class="description">
+      &nbsp; {{ peremployee?.designation }}</span
+    ></span
+  >
+  <br />
+  <span class="title"
+    >Joining date:<span class="description"
+      >&nbsp; {{ peremployee?.joiningDate }}</span
+    ></span
+  >
+  <br />
+  <span class="title">
+    Tecnologies:<span class="description"
+      >&nbsp; {{ peremployee?.technologies }}</span
+    ></span
+  >
+  <br />
+  <span class="title-activeprojects">
+    <span class="activeprojects"> Active projects: </span>&nbsp;
+    <span>
+      <div *ngIf="employeeslt.length > 0">
+        <span *ngFor="let emp of employeeslt" class="description"
+          >&nbsp;{{ emp }}
+        </span>
+      </div>
+      <div *ngIf="employeeslt.length === 0">
+        <span class="description">&nbsp;None </span>
+      </div>
+    </span>
+  </span>
+</div>

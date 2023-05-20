@@ -1,0 +1,49 @@
+<div>
+  <span class="title"
+    >Name:<span class="description"> &nbsp; {{ perproject?.name }}</span></span
+  >
+  <br />
+  <span class="title">Status:</span>
+  <div *ngIf="perproject?.status === 'New'" class="status">
+    <span class="description"> &nbsp;Yet to Start</span>
+    <button class="closebtn" (click)="projectStatus(perproject)">Start</button>
+  </div>
+  <div *ngIf="perproject?.status === 'In Progress'" class="status">
+    <span class="description"> &nbsp;In Progress</span>
+    <button class="closebtn" (click)="projectStatus(perproject)">Close</button>
+  </div>
+  <div *ngIf="perproject?.status === 'Closed'" class="status">
+    <span class="description"> &nbsp;Closed</span>
+  </div>
+  <br />
+  <span class="title"
+    >Start date:<span class="description"
+      >&nbsp; {{ perproject?.startDate }}</span
+    ></span
+  >
+  <br />
+  <span class="title">
+    Tecnologies:<span class="description"
+      >&nbsp; {{ perproject?.technologies }}</span
+    ></span
+  >
+  <br />
+  <div *ngIf="perproject?.employees.length > 0">
+    <span class="title"
+      >Developers:<span
+        *ngFor="let emp of perproject?.employees"
+        class="description"
+        >&nbsp;<span class="link" (click)="handleEvent(emp)">
+          {{ emp?.name }}</span
+        ></span
+      ></span
+    >
+  </div>
+  <div *ngIf="perproject?.employees.length == 0">
+    <span class="title"
+      >Developers:<span class="description"
+        >&nbsp;<span class="link-none"> None</span></span
+      ></span
+    >
+  </div>
+</div>

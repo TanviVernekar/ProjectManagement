@@ -18,7 +18,9 @@ import { AddProjectComponent } from './add-project/add-project.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FilterpipePipe } from './Pipes/filterpipe.pipe';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { AuthInterceptorService } from './services/auth-interceptor.service'
+import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
+import { ProjectDetailsComponent } from './project-details/project-details.component'
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { AuthInterceptorService } from './services/auth-interceptor.service'
     AddemployeeComponent,
     AddProjectComponent,
     FilterpipePipe,
+    EmployeeDetailsComponent,
+    ProjectDetailsComponent,
   ],
   imports: [
     BrowserModule,

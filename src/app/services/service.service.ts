@@ -7,8 +7,8 @@ import { environment } from 'src/environments/environment';
 })
 export class ServiceService {
   logout: boolean = false;
-  url=environment.API_URL
-  constructor(private http:HttpClient) {}
+  url = environment.API_URL;
+  constructor(private http: HttpClient) {}
   setLogStatus(data) {
     // this.logout=true
     this.logout = data;
@@ -17,5 +17,4 @@ export class ServiceService {
   getLogstatus() {
     return this.logout;
   }
-
 }
