@@ -21,23 +21,19 @@ export class ProjectsComponent implements OnInit {
   ) {}
 
   filterstring: string = '';
-
   openemp: boolean = false;
   perproject: any;
-
   peremployee: any;
-
   status: any;
   sub = new Subscription();
+  logoutStatus: boolean = false;
+  projectList!: ProjectList[];
+  term: string;
 
   ngOnInit(): void {
     this.projectListDetails();
     localStorage.removeItem('peremployees');
   }
-
-  logoutStatus: boolean = false;
-  projectList!: ProjectList[];
-  term: string;
 
   logout() {
     this.logoutStatus = true;
@@ -71,14 +67,14 @@ export class ProjectsComponent implements OnInit {
   }
 
   projectListDetails() {
-    this.projectservice.getProjectListApi();
-    this.sub = this.projectservice.projectLists.subscribe(
+    // this.projectservice.getProjectListApi();
+    this.sub = this.projectservice.projectArray$.subscribe(
       (res: ProjectList[]) => {
         this.projectList = res;
         if (this.projectList) {
           this.list();
         }
-        this.sub.unsubscribe();
+        // this.sub.unsubscribe();
       }
     );
   }

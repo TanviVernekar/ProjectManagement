@@ -26,7 +26,7 @@ export class ProjectDetailsComponent implements OnInit {
   projectStatus(body) {
     this.projectservice.addProjectStatusApi(body).subscribe((response) => {
       this.status = response;
-      this.projectservice.projectLists.subscribe((res: ProjectList[]) => {
+      this.projectservice.projectArray$.subscribe((res: ProjectList[]) => {
         this.projectList = res;
         this.newItemEvent.emit(this.projectList);
         this.projectList.map((ele) => {

@@ -56,9 +56,8 @@ export class AddProjectComponent {
       ...this.addProjForm.value,
       employees: this.selectedId,
     };
-    this.addprojectservice.addProject(body).subscribe((response) => {
-      this.data.projectListDetails();
-    });
+    this.addprojectservice.addProject(body)
+    
   }
 
   onItemSelect(item: any) {
@@ -71,8 +70,8 @@ export class AddProjectComponent {
   }
 
   employeeListDetails() {
-    this.employeeservice.getEmpListApi();
-    this.employeeservice.employeeLists.subscribe((res) => {
+    // this.employeeservice.getEmpListApi();
+    this.employeeservice.employeeArray$.subscribe((res) => {
       this.employeeList = res;
     });
   }
