@@ -6,7 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterpipePipe implements PipeTransform {
   
   transform(value: any,filterstring : string) {
-  console.log('value',value)
     if(value?.length === 0 || filterstring === ''){
       return value;
     }
@@ -20,15 +19,6 @@ export class FilterpipePipe implements PipeTransform {
     return employees;
 
 
-  // transform(value: any, ...args:any):any {
-  //   if(!value) return null;
-  //   if(!args) return value;
-
-  //   return value.filter((item)=>{
-  //     console.log(item)
-  //     return item.includes(args)
-  //   })
-  // }
 
 
   
