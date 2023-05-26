@@ -102,7 +102,6 @@ export class EmployeeComponent implements OnInit {
 
   projectListDetails() {
       this.projectservice?.projectArray$?.subscribe((res: ProjectList[]) => {
-        console.log('0000', res);
         this.projectList = res;
         this.navigate();
       });
