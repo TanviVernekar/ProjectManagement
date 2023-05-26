@@ -67,14 +67,12 @@ export class ProjectsComponent implements OnInit {
   }
 
   projectListDetails() {
-    // this.projectservice.getProjectListApi();
     this.sub = this.projectservice.projectArray$.subscribe(
       (res: ProjectList[]) => {
         this.projectList = res;
         if (this.projectList) {
           this.list();
         }
-        // this.sub.unsubscribe();
       }
     );
   }

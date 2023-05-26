@@ -94,7 +94,6 @@ export class EmployeeComponent implements OnInit {
   }
 
   employeeListDetails() {
-    // this.employeeservice.getEmpListApi();
     this.employeeservice.employeeArray$.subscribe((res: EmployeeList[]) => {
       this.employeeList = res;
 
@@ -103,7 +102,6 @@ export class EmployeeComponent implements OnInit {
   }
 
   projectListDetails() {
-    // this.projectservice.getProjectListApi();
     this.projectservice.projectArray$.subscribe((res: ProjectList[]) => {
       this.projectList = res;
       this.navigate();

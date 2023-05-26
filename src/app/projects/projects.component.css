@@ -6,10 +6,7 @@
 
 .header {
   min-width:927px;
-  /* width: 100%; */
   min-height: 55px;
-  /* display: flex; */
-  /* flex-direction: row; */
   background: #5e66ad;
 
   position: sticky;

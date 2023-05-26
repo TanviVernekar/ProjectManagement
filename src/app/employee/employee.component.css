@@ -6,12 +6,8 @@
 
 .header {
   min-width:927px;
-  /* width: 100%; */
   min-height: 55px;
-  /* display: flex; */
-  /* flex-direction: row; */
   background: #5e66ad;
-
   position: sticky;
   position: -webkit-sticky;
   top: 0;
@@ -19,8 +15,6 @@
 }
 .container1 {
   min-height: 55px;
-  /* min-width:927px; */
-  /* width: 100%; */
   display: flex;
   justify-content: space-between;
   align-items: center;
