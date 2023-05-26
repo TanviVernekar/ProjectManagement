@@ -12,29 +12,31 @@ export class ProjectService {
   url = environment.API_URL;
 
   projectLists: BehaviorSubject<ProjectList[]> = new BehaviorSubject<
-  ProjectList[]
->([]);
-projectArray$: Observable<ProjectList[]> = this.projectLists.asObservable();
+    ProjectList[]
+  >([]);
+  projectArray$: Observable<ProjectList[]> = this.projectLists.asObservable();
   constructor(private http: HttpClient) {}
 
   getProjectListApi() {
- 
-      this.http.get(`${this.url}projects`).subscribe((response:ProjectList[]) => {
+    this.http
+      .get(`${this.url}projects`)
+      .subscribe((response: ProjectList[]) => {
         this.projectLists.next(response);
       }),
       (error) => {
         this.error.next(error.message);
-      }
- 
+      };
   }
 
   addProject(data) {
-    return this.http.post(`${this.url}projects`, data).subscribe((res)=>{
-      this.getProjectListApi()
-    }),
-    (error) => {
-      this.error.next(error.message);
-    };
+    return (
+      this.http.post(`${this.url}projects`, data).subscribe((res) => {
+        this.getProjectListApi();
+      }),
+      (error) => {
+        this.error.next(error.message);
+      }
+    );
   }
 
   addProjectStatusApi(data) {

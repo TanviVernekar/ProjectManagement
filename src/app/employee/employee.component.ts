@@ -94,17 +94,17 @@ export class EmployeeComponent implements OnInit {
   }
 
   employeeListDetails() {
-    this.employeeservice.employeeArray$.subscribe((res: EmployeeList[]) => {
+    this.employeeservice.employeeArray$?.subscribe((res: EmployeeList[]) => {
       this.employeeList = res;
-
       this.navigate();
     });
   }
 
   projectListDetails() {
-    this.projectservice.projectArray$.subscribe((res: ProjectList[]) => {
-      this.projectList = res;
-      this.navigate();
-    });
+      this.projectservice?.projectArray$?.subscribe((res: ProjectList[]) => {
+        console.log('0000', res);
+        this.projectList = res;
+        this.navigate();
+      });
   }
 }
