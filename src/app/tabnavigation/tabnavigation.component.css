@@ -1,9 +1,12 @@
 .container {
   min-height: 45px;
+  min-width:927px;
+  display: flex;
   width: 100%;
  position: sticky;
   position:-webkit-sticky;
   top: 55px; 
+
 }
 
 .inner-container {
@@ -11,10 +14,13 @@
   flex-direction: row;
   list-style-type: none;
   height: 45px;
+  min-width:927px;
+  width: 100%;
   
 }
 .empcontainer {
-  width: 50vw;
+  min-width: 463.5px;
+  width: 50%;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -26,7 +32,8 @@
 .projcontainer {
   height: 45px;
   display: flex;
-  width: 50vw;
+  min-width: 463.5px;
+  width: 50%;
   text-align: center;
   justify-content: center;
   align-items: center;
