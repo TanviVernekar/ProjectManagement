@@ -35,8 +35,8 @@ export class EmployeeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.projectListDetails();
     this.employeeListDetails();
+    this.projectListDetails();
   }
 
   logout() {
@@ -103,7 +103,9 @@ export class EmployeeComponent implements OnInit {
   projectListDetails() {
       this.projectservice?.projectArray$?.subscribe((res: ProjectList[]) => {
         this.projectList = res;
-        this.navigate();
+      
+          this.navigate();
+       
       });
   }
 }
