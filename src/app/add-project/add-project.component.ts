@@ -65,7 +65,6 @@ export class AddProjectComponent {
   }
   onItemDeSelect(item: any) {
     const index = this.selectedId.indexOf(item.id);
-
     const element = this.selectedId.splice(index, 1);
   }
 
